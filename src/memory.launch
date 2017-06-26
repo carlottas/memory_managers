@@ -1,0 +1,3 @@
+<launch>
+<node name="InputManager" 		pkg="memory_managers" 	type="InputManager"  output="screen"/>
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+<node name="MemoryManager" 		pkg="memory_managers" 	type="MemoryManager"  output="screen"/>
+</launch>

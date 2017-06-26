@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/carlotta/catkin_ws/src/MEMORY/memory_managers/cmake-build-debug/devel/setup.sh
