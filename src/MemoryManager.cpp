@@ -157,11 +157,34 @@ int main(int argc, char **argv) {
     ScoreInterface srv_score;
     processPittInfo= true;
     ros::Rate loop_rate(10);
+    bool firstTime= true;
 
     while (ros::ok()) {
-        if(receivedNewShapes){
+       // if(receivedNewShapes){
+        if(firstTime){
             //Calling the scene service
             cout<<"received the atoms information"<<endl;
+            //Todo delate only for testing without pitt
+            TrackedShape shapeSphere;
+            shapeSphere.shape_tag=SPHERE;
+            shapeSphere.x_est_centroid= - 0.3;
+            shapeSphere.y_est_centroid= - 0.3;
+            shapeSphere.z_est_centroid= - 0.3;
+            vector<float> coefficient;
+            coefficient.push_back(0.1);
+            shapeSphere.coefficients=coefficient;
+            shapeSphere.color.data="red";
+            correctedRansacShapes.tracked_shapes.push_back(shapeSphere);
+            TrackedShape shapeSphere1;
+            shapeSphere1.shape_tag=SPHERE;
+            shapeSphere1.x_est_centroid=  0.3;
+            shapeSphere1.y_est_centroid=  0.3;
+            shapeSphere1.z_est_centroid=  0.3;
+            vector<float> coefficient1;
+            coefficient1.push_back(0.1);
+            shapeSphere1.coefficients=coefficient1;
+            shapeSphere1.color.data="blue";
+
             //calling the semantic service
             for (int i=0; i<correctedRansacShapes.tracked_shapes.size(); i++){
                 cout<<"filling the srv request "<<endl;
@@ -177,8 +200,11 @@ int main(int argc, char **argv) {
                 cout<<"called the service"<<endl;
                 //calling the episodic service
                 srv_episodic.request.SceneName=srv_semantic.response.SceneName;
+                cout<<"Scene Name \n"<<srv_semantic.response.SceneName<<endl;
                 srv_episodic.request.SubClasses=srv_semantic.response.SubClasses;
+
                 srv_episodic.request.SuperClasses=srv_semantic.response.SuperClasses;
+
                 srv_episodic.request.Object=srv_semantic.response.Objects;
                 string support="";
                 cout<<"please insert the support Name"<<endl;
@@ -198,6 +224,7 @@ int main(int argc, char **argv) {
                     }
                     EpisodicScoreItem episodicScoreItem;
                     episodicScoreItem.Name= srv_episodic.response.EpisodicSceneName;
+                    cout<<"Episodic Name \n"<<srv_episodic.response.EpisodicSceneName<<endl;
                     episodicScoreItem.NameSemanticItem=srv_semantic.response.SceneName;
                     srv_score.request.Episodic=episodicScoreItem;
                     if(client_score.call(srv_score)){
@@ -207,6 +234,7 @@ int main(int argc, char **argv) {
 
 
             }
+            firstTime=false;
 
         }
         ros::spinOnce();
