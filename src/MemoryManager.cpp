@@ -193,7 +193,7 @@ int main(int argc, char **argv) {
                         semanticScoreItem.SubClasses=srv_semantic.response.SubClasses;
                         semanticScoreItem.SuperClasses=srv_semantic.response.SuperClasses;
                         //TODO change because it has to be two string instead now it is a string and a List
-                        //semanticScoreItem.IsFirstSuperCLassOf=srv_semantic.response.isFirstSuperClassOf;
+                        semanticScoreItem.IsFirstSuperCLassOf=srv_semantic.response.isFirstSuperClassOf;
                         srv_score.request.Semantic=semanticScoreItem;
                     }
                     EpisodicScoreItem episodicScoreItem;
