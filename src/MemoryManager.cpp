@@ -176,12 +176,19 @@ int main(int argc, char **argv) {
             shapeSphere.color.data="red";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere);
             TrackedShape shapeSphere1;
-            shapeSphere1.shape_tag=SPHERE;
+            shapeSphere1.shape_tag=CYLINDER;
             shapeSphere1.x_est_centroid=  0.3;
             shapeSphere1.y_est_centroid=  0.3;
             shapeSphere1.z_est_centroid=  0.3;
             vector<float> coefficient1;
             coefficient1.push_back(0.1);
+            coefficient1.push_back(0.5);
+            coefficient1.push_back(0.1);
+            coefficient1.push_back(0.2);
+            coefficient1.push_back(0.3);
+            coefficient1.push_back(0.4);
+            coefficient1.push_back(0.1);
+            coefficient1.push_back(0.05);
             shapeSphere1.coefficients=coefficient1;
             shapeSphere1.color.data="blue";
 
@@ -202,9 +209,27 @@ int main(int argc, char **argv) {
                 srv_episodic.request.SceneName=srv_semantic.response.SceneName;
                 cout<<"Scene Name \n"<<srv_semantic.response.SceneName<<endl;
                 srv_episodic.request.SubClasses=srv_semantic.response.SubClasses;
-
+                vector<string> SubC= srv_semantic.response.SubClasses;
+                cout<<"SubClasses, Size : "<<SubC.size();
+                for (int i=0; i< SubC.size();i++){
+                    cout<<SubC[i]<<endl;
+                }
                 srv_episodic.request.SuperClasses=srv_semantic.response.SuperClasses;
-
+                vector<string> SupC=srv_semantic.response.SuperClasses;
+                cout<<"SuperClasses, Size : "<<SupC.size();
+                for (int i=0; i< SupC.size();i++){
+                    cout<<SupC[i]<<endl;
+                }
+                vector<string> FS= srv_semantic.response.FirstSuperClass;
+                cout<<"first sup class, Size : "<<FS.size();
+                for (int i=0; i< FS.size();i++){
+                    cout<<FS[i]<<endl;
+                }
+                vector<string> isFS= srv_semantic.response.isFirstSuperClassOf;
+                cout<<"is first sup class, Size : "<<isFS.size();
+                for (int i=0; i< isFS.size();i++){
+                    cout<<isFS[i]<<endl;
+                }
                 srv_episodic.request.Object=srv_semantic.response.Objects;
                 string support="";
                 cout<<"please insert the support Name"<<endl;
@@ -218,7 +243,6 @@ int main(int argc, char **argv) {
                         semanticScoreItem.FirstSuperClass=srv_semantic.response.FirstSuperClass;
                         semanticScoreItem.SubClasses=srv_semantic.response.SubClasses;
                         semanticScoreItem.SuperClasses=srv_semantic.response.SuperClasses;
-                        //TODO change because it has to be two string instead now it is a string and a List
                         semanticScoreItem.IsFirstSuperCLassOf=srv_semantic.response.isFirstSuperClassOf;
                         srv_score.request.Semantic=semanticScoreItem;
                     }
@@ -228,6 +252,8 @@ int main(int argc, char **argv) {
                     episodicScoreItem.NameSemanticItem=srv_semantic.response.SceneName;
                     srv_score.request.Episodic=episodicScoreItem;
                     if(client_score.call(srv_score)){
+
+                        cout<<"EEEEND"<<endl; 
                         }
 
                 }
