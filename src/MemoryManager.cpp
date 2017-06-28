@@ -237,25 +237,32 @@ int main(int argc, char **argv) {
                 srv_episodic.request.SupportName = support;
 
                 if (client_episodic.call(srv_episodic)) {
-                    if (srv_semantic.response.learnt) {
-                        SemanticScoreItem semanticScoreItem;
-                        semanticScoreItem.Name = srv_semantic.response.SceneName;
-                        semanticScoreItem.FirstSuperClass = srv_semantic.response.FirstSuperClass;
-                        semanticScoreItem.SubClasses = srv_semantic.response.SubClasses;
-                        semanticScoreItem.SuperClasses = srv_semantic.response.SuperClasses;
-                        semanticScoreItem.IsFirstSuperCLassOf = srv_semantic.response.isFirstSuperClassOf;
-                        srv_score.request.Semantic = semanticScoreItem;
+                    if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
+                        if (srv_semantic.response.learnt) {
+                            SemanticScoreItem semanticScoreItem;
+                            semanticScoreItem.Name = srv_semantic.response.SceneName;
+                            semanticScoreItem.FirstSuperClass = srv_semantic.response.FirstSuperClass;
+                            semanticScoreItem.SubClasses = srv_semantic.response.SubClasses;
+                            semanticScoreItem.SuperClasses = srv_semantic.response.SuperClasses;
+                            semanticScoreItem.IsFirstSuperCLassOf = srv_semantic.response.isFirstSuperClassOf;
+                            srv_score.request.Semantic = semanticScoreItem;
+                        }
+                        if (srv_episodic.response.learnt) {
+                            EpisodicScoreItem episodicScoreItem;
+                            episodicScoreItem.Name = srv_episodic.response.EpisodicSceneName;
+                            cout << "Episodic Name \n" << srv_episodic.response.EpisodicSceneName << endl;
+                            episodicScoreItem.NameSemanticItem = srv_semantic.response.SceneName;
+                            srv_score.request.Episodic = episodicScoreItem;
+                        }
+                        if (client_score.call(srv_score)) {
+
+                            receivedNewShapes = false;
+                            processPittInfo = userCheckContinue("memorizing");
+
+                        }
                     }
-                    EpisodicScoreItem episodicScoreItem;
-                    episodicScoreItem.Name = srv_episodic.response.EpisodicSceneName;
-                    cout << "Episodic Name \n" << srv_episodic.response.EpisodicSceneName << endl;
-                    episodicScoreItem.NameSemanticItem = srv_semantic.response.SceneName;
-                    srv_score.request.Episodic = episodicScoreItem;
-                    if (client_score.call(srv_score)) {
-
-                        receivedNewShapes=false;
+                    else{
                         processPittInfo=userCheckContinue("memorizing");
-
                     }
 
                 }
