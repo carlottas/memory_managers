@@ -50,93 +50,100 @@ void ransac_shape_acquisition(TrackedShapes RansacShapes){
         if(userCheck()){
             correctedRansacShapes=RansacShapes;
         }
-        else{
-            cout << "correct the shape" << endl;
-            for (int i = 0; i < RansacShapes.tracked_shapes.size(); i++) {
-                TrackedShape shape = RansacShapes.tracked_shapes[i];
-                TrackedShape shapeNew;
-                cout << "shapeId" << endl;
-                cout << shape.object_id << endl;
-                cout << "shapeTag" << endl;
-                cout << shape.shape_tag << endl;
-                cout << "type new shape tag" << endl;
-                string newShapeTag;
-                getline(cin, newShapeTag);
-                if (newShapeTag == SPHERE ||
-                    newShapeTag == CONE ||
-                    newShapeTag == CYLINDER ||
-                    newShapeTag == PLANE) {
-                    shapeNew.object_id = shape.object_id;
-                    shapeNew.shape_tag = newShapeTag;
-                    if (userCheckValues("centroids information")) {
-                        float newXCentroid;
-                        cout << "x centroid " << shape.x_pc_centroid << endl;
-                        cout << "insert new x centroid" << endl;
-                        cin >> newXCentroid;
-                        shapeNew.x_pc_centroid = newXCentroid;
-                        float newYCentroid;
-                        cout << "y centroid " << shape.y_pc_centroid << endl;
-                        cout << "insert new y centroid" << endl;
-                        cin >> newYCentroid;
-                        shapeNew.y_pc_centroid = newYCentroid;
-                        float newZCentroid;
-                        cout << "z centroid " << shape.z_pc_centroid << endl;
-                        cout << "insert new z centroid" << endl;
-                        cin >> newZCentroid;
-                        shapeNew.z_pc_centroid = newYCentroid;
-                    } else {
-                        shapeNew.x_pc_centroid = shape.x_pc_centroid;
-                        shapeNew.y_pc_centroid = shape.y_pc_centroid;
-                        shapeNew.z_pc_centroid = shape.z_pc_centroid;
-                    }
-                    if (newShapeTag == shape.shape_tag) {
-                        if (userCheckValues("coefficients information")) {
-                            vector<float> coefficientNew;
-                            for (int j = 0; j < shape.coefficients.size(); j++) {
-                                float newCoefficient;
-                                cout << shape.coefficients[j] << endl;
-                                cout << "insert new coefficinet" << endl;
-                                cin >> newCoefficient;
-                                coefficientNew.push_back(newCoefficient);
-                            }
-                            shapeNew.coefficients = coefficientNew;
+        else {
+            if (userCheckContinue("obtain info from pitt")) {
+                receivedNewShapes=false;
+                processPittInfo=true;
+                return ;
+            }
+            else {
+                cout << "correct the shape" << endl;
+                for (int i = 0; i < RansacShapes.tracked_shapes.size(); i++) {
+                    TrackedShape shape = RansacShapes.tracked_shapes[i];
+                    TrackedShape shapeNew;
+                    cout << "shapeId" << endl;
+                    cout << shape.object_id << endl;
+                    cout << "shapeTag" << endl;
+                    cout << shape.shape_tag << endl;
+                    cout << "type new shape tag" << endl;
+                    string newShapeTag;
+                    getline(cin, newShapeTag);
+                    if (newShapeTag == SPHERE ||
+                        newShapeTag == CONE ||
+                        newShapeTag == CYLINDER ||
+                        newShapeTag == PLANE) {
+                        shapeNew.object_id = shape.object_id;
+                        shapeNew.shape_tag = newShapeTag;
+                        if (userCheckValues("centroids information")) {
+                            float newXCentroid;
+                            cout << "x centroid " << shape.x_pc_centroid << endl;
+                            cout << "insert new x centroid" << endl;
+                            cin >> newXCentroid;
+                            shapeNew.x_pc_centroid = newXCentroid;
+                            float newYCentroid;
+                            cout << "y centroid " << shape.y_pc_centroid << endl;
+                            cout << "insert new y centroid" << endl;
+                            cin >> newYCentroid;
+                            shapeNew.y_pc_centroid = newYCentroid;
+                            float newZCentroid;
+                            cout << "z centroid " << shape.z_pc_centroid << endl;
+                            cout << "insert new z centroid" << endl;
+                            cin >> newZCentroid;
+                            shapeNew.z_pc_centroid = newYCentroid;
                         } else {
-                            shapeNew.coefficients = shape.coefficients;
+                            shapeNew.x_pc_centroid = shape.x_pc_centroid;
+                            shapeNew.y_pc_centroid = shape.y_pc_centroid;
+                            shapeNew.z_pc_centroid = shape.z_pc_centroid;
                         }
-                    } else {
-                        vector<float> coefficientNew;
-                        cout << "insert new coefficients" << endl;
-                        bool addOtherElements;
-                        do {
-                            float coeff;
-                            cout << "insert coefficient" << endl;
-                            cin >> coeff;
-                            coefficientNew.push_back(coeff);
-                            addOtherElements = userCheckContinue("adding coefficients");
-                        } while (addOtherElements);
-                        shapeNew.coefficients = coefficientNew;
+                        if (newShapeTag == shape.shape_tag) {
+                            if (userCheckValues("coefficients information")) {
+                                vector<float> coefficientNew;
+                                for (int j = 0; j < shape.coefficients.size(); j++) {
+                                    float newCoefficient;
+                                    cout << shape.coefficients[j] << endl;
+                                    cout << "insert new coefficinet" << endl;
+                                    cin >> newCoefficient;
+                                    coefficientNew.push_back(newCoefficient);
+                                }
+                                shapeNew.coefficients = coefficientNew;
+                            } else {
+                                shapeNew.coefficients = shape.coefficients;
+                            }
+                        } else {
+                            vector<float> coefficientNew;
+                            cout << "insert new coefficients" << endl;
+                            bool addOtherElements;
+                            do {
+                                float coeff;
+                                cout << "insert coefficient" << endl;
+                                cin >> coeff;
+                                coefficientNew.push_back(coeff);
+                                addOtherElements = userCheckContinue("adding coefficients");
+                            } while (addOtherElements);
+                            shapeNew.coefficients = coefficientNew;
 
+
+                        }
+
+                        if (userCheckValues("color")) {
+                            string newColor;
+                            cout << "color " << shape.color.data << endl;
+                            cout << "insert new color " << endl;
+                            getline(cin, newColor);
+                            shapeNew.color.data = newColor;
+                        } else {
+                            shapeNew.color.data = shape.color.data;
+                        }
+                        correctedRansacShapes.tracked_shapes.push_back(shapeNew);
 
                     }
 
-                    if (userCheckValues("color")) {
-                        string newColor;
-                        cout << "color " << shape.color.data << endl;
-                        cout << "insert new color " << endl;
-                        getline(cin, newColor);
-                        shapeNew.color.data = newColor;
-                    } else {
-                        shapeNew.color.data = shape.color.data;
-                    }
-                    correctedRansacShapes.tracked_shapes.push_back(shapeNew);
 
                 }
-
-
+                receivedNewShapes = true;
             }
-            receivedNewShapes = true;
+            processPittInfo = false;
         }
-        processPittInfo=false;
     }
 
 
@@ -220,6 +227,7 @@ int main(int argc, char **argv) {
                 for (int i = 0; i < SupC.size(); i++) {
                     cout << SupC[i] << endl;
                 }
+                /*
                 vector <string> FS = srv_semantic.response.FirstSuperClass;
                 cout << "first sup class, Size : " << FS.size();
                 for (int i = 0; i < FS.size(); i++) {
@@ -230,12 +238,14 @@ int main(int argc, char **argv) {
                 for (int i = 0; i < isFS.size(); i++) {
                     cout << isFS[i] << endl;
                 }
+                */
                 srv_episodic.request.Object = srv_semantic.response.Objects;
                 string support = "";
                 cout << "please insert the support Name" << endl;
                 getline(cin, support);
                 srv_episodic.request.SupportName = support;
 
+/*
                 if (client_episodic.call(srv_episodic)) {
                     if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
                         if (srv_semantic.response.learnt) {
@@ -266,6 +276,7 @@ int main(int argc, char **argv) {
                     }
 
                 }
+                */
 
 
             }
