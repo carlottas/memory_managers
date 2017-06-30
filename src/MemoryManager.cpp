@@ -170,7 +170,7 @@ int main(int argc, char **argv) {
        // if(receivedNewShapes){
 
             //Calling the scene service
-            cout<<"received the atoms information"<<endl;
+
             /*//Todo delate only for testing without pitt
             TrackedShape shapeSphere;
             shapeSphere.shape_tag=SPHERE;
@@ -240,14 +240,16 @@ int main(int argc, char **argv) {
                 }
                 */
                 srv_episodic.request.Object = srv_semantic.response.Objects;
-                string support = "";
+                string support="";
+                userCheck();
                 cout << "please insert the support Name" << endl;
                 getline(cin, support);
                 srv_episodic.request.SupportName = support;
-
-/*
                 if (client_episodic.call(srv_episodic)) {
-                    if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
+                    cout<<"episodic name"<<srv_episodic.response.EpisodicSceneName<<endl;
+                    receivedNewShapes=false;
+                }
+                 /*   if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
                         if (srv_semantic.response.learnt) {
                             SemanticScoreItem semanticScoreItem;
                             semanticScoreItem.Name = srv_semantic.response.SceneName;
@@ -305,7 +307,10 @@ vector <float> coefficientsFromRansacToSemantic(TrackedShape shape){
         coefficientsRansac.push_back(shape.coefficients[5]);
         coefficientsRansac.push_back(shape.coefficients[6]);
         //height of the cylinder since it is not given
-        coefficientsRansac.push_back(0.2);
+        cout<<"insert value for height cyilinder"<<endl;
+        float height;
+        cin>>height;
+        coefficientsRansac.push_back(height);
     }
     else if (shape.shape_tag==CONE){
        coefficientsRansac.push_back(shape.coefficients[0]);
@@ -315,9 +320,15 @@ vector <float> coefficientsFromRansacToSemantic(TrackedShape shape){
         coefficientsRansac.push_back(shape.coefficients[4]);
         coefficientsRansac.push_back(shape.coefficients[5]);
         //radius
-        coefficientsRansac.push_back(0.2);
+        cout<<"insert value for radius cone"<<endl;
+        float radius;
+        cin>>radius;
+        coefficientsRansac.push_back(radius);
         //height
-        coefficientsRansac.push_back(0.5);
+        cout<<"insert value for height cone"<<endl;
+        float height;
+        cin>>height;
+        coefficientsRansac.push_back(height);
     }
     else if (shape.shape_tag==PLANE){
         coefficientsRansac.insert(coefficientsRansac.end(),shape.coefficients.begin(),shape.coefficients.end());
