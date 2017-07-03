@@ -170,36 +170,58 @@ int main(int argc, char **argv) {
        // if(receivedNewShapes){
 
             //Calling the scene service
-
-            /*//Todo delate only for testing without pitt
+/*
+            //Todo delate only for testing without pitt
             TrackedShape shapeSphere;
             shapeSphere.shape_tag=SPHERE;
-            shapeSphere.x_est_centroid= - 0.3;
-            shapeSphere.y_est_centroid= - 0.3;
-            shapeSphere.z_est_centroid= - 0.3;
+            shapeSphere.x_pc_centroid=0.56;
+            shapeSphere.y_pc_centroid=0.013;
+            shapeSphere.z_pc_centroid=0.70;
             vector<float> coefficient;
-            coefficient.push_back(0.1);
+            coefficient.push_back(0.56);
+            coefficient.push_back(0.013);
+            coefficient.push_back(0.70);
+            coefficient.push_back(0.03);
             shapeSphere.coefficients=coefficient;
             shapeSphere.color.data="red";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere);
             TrackedShape shapeSphere1;
             shapeSphere1.shape_tag=CYLINDER;
-            shapeSphere1.x_est_centroid=  0.3;
-            shapeSphere1.y_est_centroid=  0.3;
-            shapeSphere1.z_est_centroid=  0.3;
+            shapeSphere1.x_pc_centroid= 0.65;
+            shapeSphere1.y_pc_centroid= -0.13;
+            shapeSphere1.z_pc_centroid= 0.80;
             vector<float> coefficient1;
-            coefficient1.push_back(0.1);
-            coefficient1.push_back(0.5);
-            coefficient1.push_back(0.1);
-            coefficient1.push_back(0.2);
-            coefficient1.push_back(0.3);
-            coefficient1.push_back(0.4);
-            coefficient1.push_back(0.1);
-            coefficient1.push_back(0.05);
-            shapeSphere1.coefficients=coefficient1;
-            shapeSphere1.color.data="blue";
+            coefficient1.push_back(0.815);
+            coefficient1.push_back(-0.09);
+            coefficient1.push_back(3.96);
+            coefficient1.push_back(-0.04);
+            coefficient1.push_back(-0.015);
+            coefficient1.push_back(-0.99);
+            coefficient1.push_back(0.015);
 
-*/      int decision = userDecision();
+            shapeSphere1.coefficients=coefficient1;
+            shapeSphere1.color.data="green";
+            correctedRansacShapes.tracked_shapes.push_back(shapeSphere1);
+            TrackedShape shapeSphere2;
+            shapeSphere2.shape_tag=CONE;
+            shapeSphere2.x_pc_centroid= 0.50;
+            shapeSphere2.y_pc_centroid= -0.40;
+            shapeSphere2.z_pc_centroid= 0.56;
+            vector<float> coefficient2;
+            coefficient2.push_back(-22.35);
+            coefficient2.push_back(-63.05);
+            coefficient2.push_back(-30.975);
+            coefficient2.push_back(0.6506);
+            coefficient2.push_back(0.553);
+            coefficient2.push_back(0.52);
+            coefficient2.push_back(0.46);
+            shapeSphere2.coefficients=coefficient2;
+            shapeSphere2.color.data="blue";
+            correctedRansacShapes.tracked_shapes.push_back(shapeSphere2);
+            receivedNewShapes=true;
+            */
+
+      int decision = userDecision();
         //memorization
         if(decision==1) {
             if (receivedNewShapes) {
