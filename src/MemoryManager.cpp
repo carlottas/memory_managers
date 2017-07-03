@@ -198,90 +198,264 @@ int main(int argc, char **argv) {
             coefficient1.push_back(0.05);
             shapeSphere1.coefficients=coefficient1;
             shapeSphere1.color.data="blue";
-*/          if(receivedNewShapes) {
-            //calling the semantic service
-            for (int i = 0; i < correctedRansacShapes.tracked_shapes.size(); i++) {
-                cout << "filling the srv request " << endl;
-                atom shapeSemanticService;
-                TrackedShape shapeRansac = correctedRansacShapes.tracked_shapes[i];
-                shapeSemanticService.type = shapeRansac.shape_tag;
-                shapeSemanticService.coefficients = coefficientsFromRansacToSemantic(shapeRansac);
-                shapeSemanticService.color = shapeRansac.color.data;
-                srv_semantic.request.geometricPrimitives.push_back(shapeSemanticService);
-            }
-            cout << "calling the service" << endl;
-            if (client_semantic.call(srv_semantic)) {
-                cout << "called the service" << endl;
-                //calling the episodic service
-                srv_episodic.request.SceneName = srv_semantic.response.SceneName;
-                cout << "Scene Name \n" << srv_semantic.response.SceneName << endl;
-                srv_episodic.request.SubClasses = srv_semantic.response.SubClasses;
-                vector <string> SubC = srv_semantic.response.SubClasses;
-                cout << "SubClasses, Size : " << SubC.size();
-                for (int i = 0; i < SubC.size(); i++) {
-                    cout << SubC[i] << endl;
-                }
-                srv_episodic.request.SuperClasses = srv_semantic.response.SuperClasses;
-                vector <string> SupC = srv_semantic.response.SuperClasses;
-                cout << "SuperClasses, Size : " << SupC.size();
-                for (int i = 0; i < SupC.size(); i++) {
-                    cout << SupC[i] << endl;
-                }
-                /*
-                vector <string> FS = srv_semantic.response.FirstSuperClass;
-                cout << "first sup class, Size : " << FS.size();
-                for (int i = 0; i < FS.size(); i++) {
-                    cout << FS[i] << endl;
-                }
-                vector <string> isFS = srv_semantic.response.isFirstSuperClassOf;
-                cout << "is first sup class, Size : " << isFS.size();
-                for (int i = 0; i < isFS.size(); i++) {
-                    cout << isFS[i] << endl;
-                }
-                */
-                srv_episodic.request.Object = srv_semantic.response.Objects;
-                string support="";
-                userCheck();
-                cout << "please insert the support Name" << endl;
-                getline(cin, support);
-                srv_episodic.request.SupportName = support;
-                if (client_episodic.call(srv_episodic)) {
-                    cout<<"episodic name"<<srv_episodic.response.EpisodicSceneName<<endl;
-                    receivedNewShapes=false;
-                }
-                 /*   if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
-                        if (srv_semantic.response.learnt) {
-                            SemanticScoreItem semanticScoreItem;
-                            semanticScoreItem.Name = srv_semantic.response.SceneName;
-                            semanticScoreItem.FirstSuperClass = srv_semantic.response.FirstSuperClass;
-                            semanticScoreItem.SubClasses = srv_semantic.response.SubClasses;
-                            semanticScoreItem.SuperClasses = srv_semantic.response.SuperClasses;
-                            semanticScoreItem.IsFirstSuperCLassOf = srv_semantic.response.isFirstSuperClassOf;
-                            srv_score.request.Semantic = semanticScoreItem;
-                        }
-                        if (srv_episodic.response.learnt) {
-                            EpisodicScoreItem episodicScoreItem;
-                            episodicScoreItem.Name = srv_episodic.response.EpisodicSceneName;
-                            cout << "Episodic Name \n" << srv_episodic.response.EpisodicSceneName << endl;
-                            episodicScoreItem.NameSemanticItem = srv_semantic.response.SceneName;
-                            srv_score.request.Episodic = episodicScoreItem;
-                        }
-                        if (client_score.call(srv_score)) {
 
-                            receivedNewShapes = false;
-                            processPittInfo = userCheckContinue("memorizing");
-
-                        }
+*/      int decision = userDecision();
+        //memorization
+        if(decision==1) {
+            if (receivedNewShapes) {
+                //calling the semantic service
+                for (int i = 0; i < correctedRansacShapes.tracked_shapes.size(); i++) {
+                    cout << "filling the srv request " << endl;
+                    atom shapeSemanticService;
+                    TrackedShape shapeRansac = correctedRansacShapes.tracked_shapes[i];
+                    shapeSemanticService.type = shapeRansac.shape_tag;
+                    shapeSemanticService.coefficients = coefficientsFromRansacToSemantic(shapeRansac);
+                    shapeSemanticService.color = shapeRansac.color.data;
+                    srv_semantic.request.geometricPrimitives.push_back(shapeSemanticService);
+                }
+                cout << "calling the service" << endl;
+                if (client_semantic.call(srv_semantic)) {
+                    cout << "called the service" << endl;
+                    //calling the episodic service
+                    srv_episodic.request.SceneName = srv_semantic.response.SceneName;
+                    cout << "Scene Name \n" << srv_semantic.response.SceneName << endl;
+                    srv_episodic.request.SubClasses = srv_semantic.response.SubClasses;
+                    vector <string> SubC = srv_semantic.response.SubClasses;
+                    cout << "SubClasses, Size : " << SubC.size();
+                    for (int i = 0; i < SubC.size(); i++) {
+                        cout << SubC[i] << endl;
                     }
-                    else{
-                        processPittInfo=userCheckContinue("memorizing");
+                    srv_episodic.request.SuperClasses = srv_semantic.response.SuperClasses;
+                    vector <string> SupC = srv_semantic.response.SuperClasses;
+                    cout << "SuperClasses, Size : " << SupC.size();
+                    for (int i = 0; i < SupC.size(); i++) {
+                        cout << SupC[i] << endl;
                     }
+                    /*
+                    vector <string> FS = srv_semantic.response.FirstSuperClass;
+                    cout << "first sup class, Size : " << FS.size();
+                    for (int i = 0; i < FS.size(); i++) {
+                        cout << FS[i] << endl;
+                    }
+                    vector <string> isFS = srv_semantic.response.isFirstSuperClassOf;
+                    cout << "is first sup class, Size : " << isFS.size();
+                    for (int i = 0; i < isFS.size(); i++) {
+                        cout << isFS[i] << endl;
+                    }
+                    */
+                    srv_episodic.request.Object = srv_semantic.response.Objects;
+                    string support = "";
+                    userCheck();
+                    cout << "please insert the support Name" << endl;
+                    getline(cin, support);
+                    srv_episodic.request.SupportName = support;
+                    if (client_episodic.call(srv_episodic)) {
+                        cout << "episodic name" << srv_episodic.response.EpisodicSceneName << endl;
+                        receivedNewShapes = false;
+                    }
+                    /*   if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
+                           if (srv_semantic.response.learnt) {
+                               SemanticScoreItem semanticScoreItem;
+                               semanticScoreItem.Name = srv_semantic.response.SceneName;
+                               semanticScoreItem.FirstSuperClass = srv_semantic.response.FirstSuperClass;
+                               semanticScoreItem.SubClasses = srv_semantic.response.SubClasses;
+                               semanticScoreItem.SuperClasses = srv_semantic.response.SuperClasses;
+                               semanticScoreItem.IsFirstSuperCLassOf = srv_semantic.response.isFirstSuperClassOf;
+                               srv_score.request.Semantic = semanticScoreItem;
+                           }
+                           if (srv_episodic.response.learnt) {
+                               EpisodicScoreItem episodicScoreItem;
+                               episodicScoreItem.Name = srv_episodic.response.EpisodicSceneName;
+                               cout << "Episodic Name \n" << srv_episodic.response.EpisodicSceneName << endl;
+                               episodicScoreItem.NameSemanticItem = srv_semantic.response.SceneName;
+                               srv_score.request.Episodic = episodicScoreItem;
+                           }
+                           if (client_score.call(srv_score)) {
+
+                               receivedNewShapes = false;
+                               processPittInfo = userCheckContinue("memorizing");
+
+                           }
+                       }
+                       else{
+                           processPittInfo=userCheckContinue("memorizing");
+                       }
+
+                   }
+                   */
+
 
                 }
-                */
-
+            }
+        }
+        //retrieval
+        else if(decision==2){
+            int retrieval = userDecisionRetrieval();
+            //semantic Retrieval
+            if(retrieval==1){
+                vector<RetrievalSemantic> retrievalSemantic;
+                bool colorContinue = true;
+                do {
+                    RetrievalSemantic rs;
+                    string color = "";
+                    string label="";
+                    int cardinality;
+                    cout<<"insert color"<< endl;
+                    getline(cin, color);
+                    //MAP COLOR
+                    rs.ObjectProperty= color;
+                    cout<<"insert minimum cardinatlity"<<endl;
+                    cin>>cardinality;
+                    rs.minCardinality.data= cardinality;
+                    cout<<"insert kind of primitive"<<endl;
+                    getline(cin,label);
+                    rs.Primitive=label;
+                    retrievalSemantic.push_back(rs);
+                    colorContinue=userCheckContinue("adding color information?");
+                }
+                while(colorContinue);
+                bool srContinue=true;
+                do {
+                    RetrievalSemantic rs;
+                    string spatialRelationship = "";
+                    string label="";
+                    int cardinality;
+                    cout<<"insert spatialRelationship"<< endl;
+                    getline(cin, spatialRelationship);
+                    rs.ObjectProperty= spatialRelationship;
+                    cout<<"insert minimum cardinatlity"<<endl;
+                    cin>>cardinality;
+                    rs.minCardinality.data= cardinality;
+                    cout<<"insert kind of primitive"<<endl;
+                    getline(cin,label);
+                    rs.Primitive=label;
+                    retrievalSemantic.push_back(rs);
+                    srContinue=userCheckContinue("adding spatialRelationship?");
+                }
+                while(srContinue);
+                srv_semantic.request.retrieval =retrievalSemantic;
 
             }
+            //episodic Retrieval
+            else if (retrieval==2){
+                RetrievalEpisodic re;
+                //support name
+                string support= "";
+                int timeInterval;
+                cout<<"insert support name"<<endl ;
+                getline(cin,support);
+                re.support=support;
+                //time interval
+                cout<<"insert time interval"<<endl;
+                cin>>timeInterval;
+                re.time.data=timeInterval;
+                //objectProperty
+                vector<objectPropertyRetrieval> propertyRetrieval ;
+                bool continueSpatialRelationship=true;
+                do {
+                    objectPropertyRetrieval objPropertyRetrieval;
+                    retrievalAtom subject;
+                    retrievalAtom object ;
+                    //fill in the subject
+                    string labelSubject ;
+                    string colorSubject="";
+                    string labelObject ;
+                    string colorObject="";
+                    string relationship="";
+                    cout<<"insert tag of the subject"<<endl;
+                    getline(cin,labelSubject);
+                    subject.Label=labelSubject;
+                    vector<geometricCharacteristic> geomCarSubject;
+                    bool geometricCharacteristicContinue = true;
+                    do{
+                        geometricCharacteristic gc;
+                        string feature = "";
+                        int interval;
+                        cout<<"inserti geometric feature"<<endl;
+                        getline(cin,feature);
+                        gc.characteristic=feature;
+                        cout<<"insert interval"<<endl;
+                        cin>>interval;
+                        gc.interval= interval;
+                        geomCarSubject.push_back(gc);
+                        geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
+                    }while(geometricCharacteristicContinue);
+                    subject.GeometricFeatures=geomCarSubject;
+                    cout <<"insert color of primitive"<<endl;
+                    getline(cin,colorSubject);
+                    subject.color=colorSubject;
+                    objPropertyRetrieval.subject=subject;
+                    //spatial Relationship
+                    cout<<"insert the relationship"<<endl ;
+                    getline(cin,relationship);
+                    objPropertyRetrieval.relationship=relationship;
+                    //object
+                    cout<<"insert tag of the object"<<endl;
+                    getline(cin,labelObject);
+                    object.Label=labelObject;
+                    vector<geometricCharacteristic> geomCarObject;
+                    do{
+                        geometricCharacteristic gc;
+                        string feature = "";
+                        int interval;
+                        cout<<"inserti geometric feature"<<endl;
+                        getline(cin,feature);
+                        gc.characteristic=feature;
+                        cout<<"insert interval"<<endl;
+                        cin>>interval;
+                        gc.interval= interval;
+                        geomCarObject.push_back(gc);
+                        geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
+                    }while(geometricCharacteristicContinue);
+                    object.GeometricFeatures=geomCarObject;
+                    cout <<"insert color of primitive"<<endl;
+                    getline(cin,colorObject);
+                    object.color=colorObject;
+                    objPropertyRetrieval.object=object;
+                    propertyRetrieval.push_back(objPropertyRetrieval);
+                    continueSpatialRelationship= userCheckContinue("adding spatial relationship");
+                }while(continueSpatialRelationship);
+                re.objectProperty=propertyRetrieval;
+                vector<retrievalAtom> retrAtoms;
+                bool retrievalAtomContinue= true ;
+                do {
+                    retrievalAtom atom ;
+                    string label="";
+                    string color ="";
+                    cout<<"insert tag of the primitive"<<endl;
+                    getline(cin,label);
+                    atom.Label=label;
+                    vector<geometricCharacteristic> geomCar;
+                    bool geometricCharacteristicContinue=true;
+                    do{
+                        geometricCharacteristic gc;
+                        string feature = "";
+                        int interval;
+                        cout<<"inserti geometric feature"<<endl;
+                        getline(cin,feature);
+                        gc.characteristic=feature;
+                        cout<<"insert interval"<<endl;
+                        cin>>interval;
+                        gc.interval= interval;
+                        geomCar.push_back(gc);
+                        geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
+                    }while(geometricCharacteristicContinue);
+                    atom.GeometricFeatures=geomCar;
+                    cout <<"insert color of primitive"<<endl;
+                    getline(cin,color);
+                    atom.color=color;
+                    retrAtoms.push_back(atom);
+                    retrievalAtomContinue=userCheckContinue("adding primitives");
+                }while(retrievalAtomContinue);
+                re.primitives=retrAtoms;
+                srv_episodic.request.retrieval=re;
+            }
+
+        }
+        //forgetting
+
+        else if(decision==3){
+
         }
         ros::spinOnce();
         loop_rate.sleep();

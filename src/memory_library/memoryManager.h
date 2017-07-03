@@ -165,7 +165,7 @@ namespace memManager{
     bool userCheckContinue (string info){
         string input = "";
         while (true){
-            cout << "Do you want continue +" << info<< " ? (Y/N)";
+            cout << "Do you want continue " << info<< " ? (Y/N)";
             getline(cin, input);
             if (input == POSITIVE_RESPONSE) {
 
@@ -202,6 +202,25 @@ namespace memManager{
         }
 
     }
+    int userDecisionRetrieval(){
+
+            while (true){
+                string input="";
+                cout<<"What do you want to do ?\n- 1 Semantic Retrieval;\n- 2 Episodic store items;\n";
+                getline(cin,input);
+                if (input=="1"){
+                    return 1;
+                }
+                else if (input=="2"){
+                    return 2;
+                }
+                else {
+                    cout<<"value not included in the interval,\n insert an integer value equal either to 1 or  2  or 3, \n please redo selection";
+                }
+
+            }
+
+    };
         int  userDecision(){
 
             while (true){
