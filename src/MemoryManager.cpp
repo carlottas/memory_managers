@@ -170,7 +170,7 @@ int main(int argc, char **argv) {
        // if(receivedNewShapes){
 
             //Calling the scene service
-
+/*
             //Todo delate only for testing without pitt
             TrackedShape shapeSphere;
             shapeSphere.shape_tag=SPHERE;
@@ -219,7 +219,7 @@ int main(int argc, char **argv) {
             shapeSphere2.color.data="blue";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere2);
             receivedNewShapes=true;
-            
+            */
 
       int decision = userDecision();
         //memorization
