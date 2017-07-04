@@ -275,7 +275,7 @@ int main(int argc, char **argv) {
                         cout << "episodic name" << srv_episodic.response.EpisodicSceneName << endl;
                         receivedNewShapes = false;
                     }
-                    /*   if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
+                    if(srv_episodic.response.learnt || srv_semantic.response.learnt) {
                            if (srv_semantic.response.learnt) {
                                SemanticScoreItem semanticScoreItem;
                                semanticScoreItem.Name = srv_semantic.response.SceneName;
@@ -300,16 +300,17 @@ int main(int argc, char **argv) {
                            }
                        }
                        else{
+                        cout<<"not able to initialize the score"<<endl;
                            processPittInfo=userCheckContinue("memorizing");
                        }
 
                    }
-                   */
+
 
 
                 }
             }
-        }
+
         //retrieval
         else if(decision==2){
             int retrieval = userDecisionRetrieval();
