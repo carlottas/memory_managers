@@ -398,6 +398,7 @@ int main(int argc, char **argv) {
                 //time interval
                 cout<<"insert time interval"<<endl;
                 cin>>timeInterval;
+                userCheck();
                 re.time.data=timeInterval;
                 //objectProperty
                 vector<objectPropertyRetrieval> propertyRetrieval ;
@@ -426,6 +427,7 @@ int main(int argc, char **argv) {
                         gc.characteristic=feature;
                         cout<<"insert interval"<<endl;
                         cin>>interval;
+                        userCheck();
                         gc.interval= interval;
                         geomCarSubject.push_back(gc);
                         geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
@@ -450,9 +452,11 @@ int main(int argc, char **argv) {
                         int interval;
                         cout<<"inserti geometric feature"<<endl;
                         getline(cin,feature);
+                        userCheck();
                         gc.characteristic=feature;
                         cout<<"insert interval"<<endl;
                         cin>>interval;
+                        userCheck();
                         gc.interval= interval;
                         geomCarObject.push_back(gc);
                         geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
@@ -468,6 +472,7 @@ int main(int argc, char **argv) {
                 re.objectProperty=propertyRetrieval;
                 vector<retrievalAtom> retrAtoms;
                 bool retrievalAtomContinue= true ;
+                /*
                 do {
                     retrievalAtom atom ;
                     string label="";
@@ -486,6 +491,7 @@ int main(int argc, char **argv) {
                         gc.characteristic=feature;
                         cout<<"insert interval"<<endl;
                         cin>>interval;
+                        userCheck();
                         gc.interval= interval;
                         geomCar.push_back(gc);
                         geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
@@ -498,7 +504,17 @@ int main(int argc, char **argv) {
                     retrievalAtomContinue=userCheckContinue("adding primitives");
                 }while(retrievalAtomContinue);
                 re.primitives=retrAtoms;
+                 */
                 srv_episodic.request.retrieval=re;
+                cout<<"calling the episodic service..."<<endl;
+                if (client_episodic.call(srv_episodic)){
+                    cout<<"succeded!!!"<<endl;
+                    vector <string> individuals= srv_episodic.response.retrievalEpisodic;
+                    for (int i = 0; i < individuals.size();i++){
+                        cout<<"individual"<<endl;
+                        cout<<individuals[i]<<endl;
+                    }
+                }
             }
 
         }
