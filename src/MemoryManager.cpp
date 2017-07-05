@@ -317,7 +317,6 @@ int main(int argc, char **argv) {
 
         //retrieval
         else if(decision==2){
-            client_semantic.call(srv_semantic);
             int retrieval = userDecisionRetrieval();
             //semantic Retrieval
             if(retrieval==1){
@@ -334,7 +333,8 @@ int main(int argc, char **argv) {
                     rs.ObjectProperty= colorRetrieval(color);
                     cout<<"insert minimum cardinatlity"<<endl;
                     cin>>cardinality;
-                    rs.minCardinality.data= cardinality;
+                    userCheck();
+                    rs.minCardinality= cardinality;
                     cout<<"insert kind of primitive"<<endl;
                     getline(cin,label);
                     rs.Primitive=label;
@@ -353,7 +353,8 @@ int main(int argc, char **argv) {
                     rs.ObjectProperty= spatialRelRetrieval(spatialRelationship);
                     cout<<"insert minimum cardinatlity"<<endl;
                     cin>>cardinality;
-                    rs.minCardinality.data= cardinality;
+                    userCheck();
+                    rs.minCardinality= cardinality;
                     cout<<"insert kind of primitive"<<endl;
                     getline(cin,label);
                     rs.Primitive=label;
@@ -362,6 +363,27 @@ int main(int argc, char **argv) {
                 }
                 while(srContinue);
                 srv_semantic.request.retrieval =retrievalSemantic;
+                cout<<"calling the srv"<<endl ;
+                if(client_semantic.call(srv_semantic)){
+                    vector < string >  retrievaledClasses= srv_semantic.response.retrievaled;
+                    for (int i=0; i<retrievaledClasses.size();i++){
+                        cout<<"classes retrieved"<<endl;
+                        cout<<retrievaledClasses[i]<<endl;
+                    }
+                    if (retrievaledClasses.size()==1){
+                        cout<<"is empty"<<endl;
+                    }
+                    srv_episodic.request.retrievalSemantic=retrievaledClasses;
+                    cout<<"calling episdic srv"<<endl;
+                    if(client_episodic.call(srv_episodic)){
+                        vector<string>  individuals= srv_episodic.response.retrievalSemantic;
+                        for (int i=0; i<individuals.size();i++){
+                            cout<<"classes retrieved"<<endl;
+                            cout<<individuals[i]<<endl;
+                        }
+
+                    }
+                }
 
             }
             //episodic Retrieval
