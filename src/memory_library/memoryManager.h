@@ -140,6 +140,8 @@ namespace memManager{
         //individuals
         static const string SCORE_INDIVIDUAL_TOTAL_EPISODIC="totalEpisodic";
         static const string SCORE_INDIVIDUAL_TOTAL_SEMANTIC="totalSemantic";
+        //prefix
+        static const string SCENE_SPATIAL_PRFIX = "has-scene_";
 
         bool userCheck(){
             string input = "";

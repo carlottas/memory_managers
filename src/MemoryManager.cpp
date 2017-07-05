@@ -28,7 +28,8 @@ bool receivedNewShapes=false;
 bool processPittInfo= false;
 
 vector<float> coefficientsFromRansacToSemantic(TrackedShape shape);
-
+string colorRetrieval(string color);
+string spatialRelRetrieval(string spatialRelation);
 void ransac_shape_acquisition(TrackedShapes RansacShapes){
     if(processPittInfo) {
 
@@ -220,10 +221,13 @@ int main(int argc, char **argv) {
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere2);
             receivedNewShapes=true;
             */
-
-      int decision = userDecision();
+        int decision = userDecision();
+        srv_semantic.request.Decision=decision;
+        srv_episodic.request.Decision=decision;
+        srv_score.request.Decision=decision;
         //memorization
         if(decision==1) {
+
             if (receivedNewShapes) {
                 //calling the semantic service
                 for (int i = 0; i < correctedRansacShapes.tracked_shapes.size(); i++) {
@@ -313,6 +317,7 @@ int main(int argc, char **argv) {
 
         //retrieval
         else if(decision==2){
+            client_semantic.call(srv_semantic);
             int retrieval = userDecisionRetrieval();
             //semantic Retrieval
             if(retrieval==1){
@@ -326,7 +331,7 @@ int main(int argc, char **argv) {
                     cout<<"insert color"<< endl;
                     getline(cin, color);
                     //MAP COLOR
-                    rs.ObjectProperty= color;
+                    rs.ObjectProperty= colorRetrieval(color);
                     cout<<"insert minimum cardinatlity"<<endl;
                     cin>>cardinality;
                     rs.minCardinality.data= cardinality;
@@ -345,7 +350,7 @@ int main(int argc, char **argv) {
                     int cardinality;
                     cout<<"insert spatialRelationship"<< endl;
                     getline(cin, spatialRelationship);
-                    rs.ObjectProperty= spatialRelationship;
+                    rs.ObjectProperty= spatialRelRetrieval(spatialRelationship);
                     cout<<"insert minimum cardinatlity"<<endl;
                     cin>>cardinality;
                     rs.minCardinality.data= cardinality;
@@ -535,4 +540,10 @@ vector <float> coefficientsFromRansacToSemantic(TrackedShape shape){
 
 
 }
+string colorRetrieval(string color){
+    return SCENE_SPATIAL_PRFIX+color;
+};
+string spatialRelRetrieval(string spatialRelation){
+    return SCENE_SPATIAL_PRFIX+spatialRelation;
+};
 
