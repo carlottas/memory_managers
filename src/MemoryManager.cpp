@@ -399,7 +399,7 @@ int main(int argc, char **argv) {
                 cout<<"insert time interval"<<endl;
                 cin>>timeInterval;
                 userCheck();
-                re.time.data=timeInterval;
+                re.time=timeInterval;
                 //objectProperty
                 vector<objectPropertyRetrieval> propertyRetrieval ;
                 bool continueSpatialRelationship=true;
