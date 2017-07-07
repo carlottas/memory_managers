@@ -387,124 +387,130 @@ int main(int argc, char **argv) {
 
             }
             //episodic Retrieval
-            else if (retrieval==2){
+            else if (retrieval==2) {
                 RetrievalEpisodic re;
-                //support name
-                string support= "";
-                int timeInterval;
-                cout<<"insert support name"<<endl ;
-                getline(cin,support);
-                re.support=support;
-                //time interval
-                cout<<"insert time interval"<<endl;
-                cin>>timeInterval;
-                userCheck();
-                re.time=timeInterval;
+                //support
+                if (userRetrievalAdd("Support")) {
+                    string support = "";
+                    cout << "insert support name" << endl;
+                    getline(cin, support);
+                    re.support = support;
+                }
+                if (userRetrievalAdd("time intervall")) {
+                    int timeInterval;
+                    cout << "insert time interval" << endl;
+                    cin >> timeInterval;
+                    userCheck();
+                    re.time = timeInterval;
+                }
                 //objectProperty
-                vector<objectPropertyRetrieval> propertyRetrieval ;
-                bool continueSpatialRelationship=true;
-                do {
-                    objectPropertyRetrieval objPropertyRetrieval;
-                    retrievalAtom subject;
-                    retrievalAtom object ;
-                    //fill in the subject
-                    string labelSubject ;
-                    string colorSubject="";
-                    string labelObject ;
-                    string colorObject="";
-                    string relationship="";
-                    cout<<"insert tag of the subject"<<endl;
-                    getline(cin,labelSubject);
-                    subject.Label=labelSubject;
-                    vector<geometricCharacteristic> geomCarSubject;
-                    bool geometricCharacteristicContinue = true;
-                    do{
-                        geometricCharacteristic gc;
-                        string feature = "";
-                        int interval;
-                        cout<<"inserti geometric feature"<<endl;
-                        getline(cin,feature);
-                        gc.characteristic=feature;
-                        cout<<"insert interval"<<endl;
-                        cin>>interval;
-                        userCheck();
-                        gc.interval= interval;
-                        geomCarSubject.push_back(gc);
-                        geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
-                    }while(geometricCharacteristicContinue);
-                    subject.GeometricFeatures=geomCarSubject;
-                    cout <<"insert color of primitive"<<endl;
-                    getline(cin,colorSubject);
-                    subject.color=colorSubject;
-                    objPropertyRetrieval.subject=subject;
-                    //spatial Relationship
-                    cout<<"insert the relationship"<<endl ;
-                    getline(cin,relationship);
-                    objPropertyRetrieval.relationship=relationship;
-                    //object
-                    cout<<"insert tag of the object"<<endl;
-                    getline(cin,labelObject);
-                    object.Label=labelObject;
-                    vector<geometricCharacteristic> geomCarObject;
-                    do{
-                        geometricCharacteristic gc;
-                        string feature = "";
-                        int interval;
-                        cout<<"inserti geometric feature"<<endl;
-                        getline(cin,feature);
-                        userCheck();
-                        gc.characteristic=feature;
-                        cout<<"insert interval"<<endl;
-                        cin>>interval;
-                        userCheck();
-                        gc.interval= interval;
-                        geomCarObject.push_back(gc);
-                        geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
-                    }while(geometricCharacteristicContinue);
-                    object.GeometricFeatures=geomCarObject;
-                    cout <<"insert color of primitive"<<endl;
-                    getline(cin,colorObject);
-                    object.color=colorObject;
-                    objPropertyRetrieval.object=object;
-                    propertyRetrieval.push_back(objPropertyRetrieval);
-                    continueSpatialRelationship= userCheckContinue("adding spatial relationship");
-                }while(continueSpatialRelationship);
-                re.objectProperty=propertyRetrieval;
-                vector<retrievalAtom> retrAtoms;
-                bool retrievalAtomContinue= true ;
-                /*
-                do {
-                    retrievalAtom atom ;
-                    string label="";
-                    string color ="";
-                    cout<<"insert tag of the primitive"<<endl;
-                    getline(cin,label);
-                    atom.Label=label;
-                    vector<geometricCharacteristic> geomCar;
-                    bool geometricCharacteristicContinue=true;
-                    do{
-                        geometricCharacteristic gc;
-                        string feature = "";
-                        int interval;
-                        cout<<"inserti geometric feature"<<endl;
-                        getline(cin,feature);
-                        gc.characteristic=feature;
-                        cout<<"insert interval"<<endl;
-                        cin>>interval;
-                        userCheck();
-                        gc.interval= interval;
-                        geomCar.push_back(gc);
-                        geometricCharacteristicContinue=userCheckContinue("insert geometric characteristics");
-                    }while(geometricCharacteristicContinue);
-                    atom.GeometricFeatures=geomCar;
-                    cout <<"insert color of primitive"<<endl;
-                    getline(cin,color);
-                    atom.color=color;
-                    retrAtoms.push_back(atom);
-                    retrievalAtomContinue=userCheckContinue("adding primitives");
-                }while(retrievalAtomContinue);
-                re.primitives=retrAtoms;
-                 */
+                if (userRetrievalAdd("spatial relationship")) {
+                    vector <objectPropertyRetrieval> propertyRetrieval;
+                    bool continueSpatialRelationship = true;
+                    do {
+                        objectPropertyRetrieval objPropertyRetrieval;
+                        retrievalAtom subject;
+                        retrievalAtom object;
+                        //fill in the subject
+                        string labelSubject;
+                        string colorSubject = "";
+                        string labelObject;
+                        string colorObject = "";
+                        string relationship = "";
+                        cout << "insert tag of the subject" << endl;
+                        getline(cin, labelSubject);
+                        subject.Label = labelSubject;
+                        vector <geometricCharacteristic> geomCarSubject;
+                        bool geometricCharacteristicContinue = true;
+                        do {
+                            geometricCharacteristic gc;
+                            string feature = "";
+                            int interval;
+                            cout << "inserti geometric feature" << endl;
+                            getline(cin, feature);
+                            gc.characteristic = feature;
+                            cout << "insert interval" << endl;
+                            cin >> interval;
+                            userCheck();
+                            gc.interval = interval;
+                            geomCarSubject.push_back(gc);
+                            geometricCharacteristicContinue = userCheckContinue("insert geometric characteristics");
+                        } while (geometricCharacteristicContinue);
+                        subject.GeometricFeatures = geomCarSubject;
+                        cout << "insert color of primitive" << endl;
+                        getline(cin, colorSubject);
+                        subject.color = colorSubject;
+                        objPropertyRetrieval.subject = subject;
+                        //spatial Relationship
+                        cout << "insert the relationship" << endl;
+                        getline(cin, relationship);
+                        objPropertyRetrieval.relationship = relationship;
+                        //object
+                        cout << "insert tag of the object" << endl;
+                        getline(cin, labelObject);
+                        object.Label = labelObject;
+                        vector <geometricCharacteristic> geomCarObject;
+                        do {
+                            geometricCharacteristic gc;
+                            string feature = "";
+                            int interval;
+                            cout << "inserti geometric feature" << endl;
+                            getline(cin, feature);
+                            userCheck();
+                            gc.characteristic = feature;
+                            cout << "insert interval" << endl;
+                            cin >> interval;
+                            userCheck();
+                            gc.interval = interval;
+                            geomCarObject.push_back(gc);
+                            geometricCharacteristicContinue = userCheckContinue("insert geometric characteristics");
+                        } while (geometricCharacteristicContinue);
+                        object.GeometricFeatures = geomCarObject;
+                        cout << "insert color of primitive" << endl;
+                        getline(cin, colorObject);
+                        object.color = colorObject;
+                        objPropertyRetrieval.object = object;
+                        propertyRetrieval.push_back(objPropertyRetrieval);
+                        continueSpatialRelationship = userCheckContinue("adding spatial relationship");
+                    } while (continueSpatialRelationship);
+
+                    re.objectProperty = propertyRetrieval;
+                }
+                if (userRetrievalAdd("primitive information")) {
+                    vector <retrievalAtom> retrAtoms;
+                    bool retrievalAtomContinue = true;
+                    do {
+                        retrievalAtom atom;
+                        string label = "";
+                        string color = "";
+                        cout << "insert tag of the primitive" << endl;
+                        getline(cin, label);
+                        atom.Label = label;
+                        vector <geometricCharacteristic> geomCar;
+                        bool geometricCharacteristicContinue = true;
+                        do {
+                            geometricCharacteristic gc;
+                            string feature = "";
+                            int interval;
+                            cout << "inserti geometric feature" << endl;
+                            getline(cin, feature);
+                            gc.characteristic = feature;
+                            cout << "insert interval" << endl;
+                            cin >> interval;
+                            userCheck();
+                            gc.interval = interval;
+                            geomCar.push_back(gc);
+                            geometricCharacteristicContinue = userCheckContinue("insert geometric characteristics");
+                        } while (geometricCharacteristicContinue);
+                        atom.GeometricFeatures = geomCar;
+                        cout << "insert color of primitive" << endl;
+                        getline(cin, color);
+                        atom.color = color;
+                        retrAtoms.push_back(atom);
+                        retrievalAtomContinue = userCheckContinue("adding primitives");
+                    } while (retrievalAtomContinue);
+                    re.primitives = retrAtoms;
+                }
                 srv_episodic.request.retrieval=re;
                 cout<<"calling the episodic service..."<<endl;
                 if (client_episodic.call(srv_episodic)){

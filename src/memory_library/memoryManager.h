@@ -266,6 +266,26 @@ namespace memManager{
         }
 
     }
+    bool userRetrievalAdd(string info ){
+        string input = "";
+        while (true){
+            cout << "Do you want to add "<<info<<" (Y/N)?"<<endl;
+            getline(cin, input);
+            if (input == POSITIVE_RESPONSE) {
+
+                return true ;
+            }
+            else if (input==NEGATIVE_RESPONSE){
+                return false;
+            }
+            else
+            {
+                cout<<"invalid input"<<endl;
+            }
+
+        }
+
+    }
 
 }
 
