@@ -407,6 +407,9 @@ int main(int argc, char **argv) {
                     userCheck();
                     re.time = timeInterval;
                 }
+                //else{
+                 //   re.time=3;
+                //}
                 //objectProperty
                 if (userRetrievalAdd("spatial relationship")) {
                     vector <objectPropertyRetrieval> propertyRetrieval;
@@ -526,7 +529,7 @@ int main(int argc, char **argv) {
                     }
                     srv_score.request.episodicRetrieval=srv_episodic.response.retrievalEpisodic;
                     if(client_score.call(srv_score)){
-                        //forgott
+                       // forgott
                     }
                 }
             }
