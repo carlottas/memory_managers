@@ -321,47 +321,49 @@ int main(int argc, char **argv) {
             //semantic Retrieval
             if(retrieval==1){
                 vector<RetrievalSemantic> retrievalSemantic;
-                bool colorContinue = true;
-                do {
-                    RetrievalSemantic rs;
-                    string color = "";
-                    string label="";
-                    int cardinality;
-                    cout<<"insert color"<< endl;
-                    getline(cin, color);
-                    //MAP COLOR
-                    rs.ObjectProperty= colorRetrieval(color);
-                    cout<<"insert minimum cardinatlity"<<endl;
-                    cin>>cardinality;
-                    userCheck();
-                    rs.minCardinality= cardinality;
-                    cout<<"insert kind of primitive"<<endl;
-                    getline(cin,label);
-                    rs.Primitive=label;
-                    retrievalSemantic.push_back(rs);
-                    colorContinue=userCheckContinue("adding color information?");
+                if(userRetrievalAdd("color")) {
+                    bool colorContinue = true;
+                    do {
+                        RetrievalSemantic rs;
+                        string color = "";
+                        string label = "";
+                        int cardinality;
+                        cout << "insert color" << endl;
+                        getline(cin, color);
+                        //MAP COLOR
+                        rs.ObjectProperty = colorRetrieval(color);
+                        cout << "insert minimum cardinatlity" << endl;
+                        cin >> cardinality;
+                        userCheck();
+                        rs.minCardinality = cardinality;
+                        cout << "insert kind of primitive" << endl;
+                        getline(cin, label);
+                        rs.Primitive = label;
+                        retrievalSemantic.push_back(rs);
+                        colorContinue = userCheckContinue("adding color information?");
+                    } while (colorContinue);
                 }
-                while(colorContinue);
-                bool srContinue=true;
-                do {
-                    RetrievalSemantic rs;
-                    string spatialRelationship = "";
-                    string label="";
-                    int cardinality;
-                    cout<<"insert spatialRelationship"<< endl;
-                    getline(cin, spatialRelationship);
-                    rs.ObjectProperty= spatialRelRetrieval(spatialRelationship);
-                    cout<<"insert minimum cardinatlity"<<endl;
-                    cin>>cardinality;
-                    userCheck();
-                    rs.minCardinality= cardinality;
-                    cout<<"insert kind of primitive"<<endl;
-                    getline(cin,label);
-                    rs.Primitive=label;
-                    retrievalSemantic.push_back(rs);
-                    srContinue=userCheckContinue("adding spatialRelationship?");
+                if(userRetrievalAdd("Spatial Relationship")) {
+                    bool srContinue = true;
+                    do {
+                        RetrievalSemantic rs;
+                        string spatialRelationship = "";
+                        string label = "";
+                        int cardinality;
+                        cout << "insert spatialRelationship" << endl;
+                        getline(cin, spatialRelationship);
+                        rs.ObjectProperty = spatialRelRetrieval(spatialRelationship);
+                        cout << "insert minimum cardinatlity" << endl;
+                        cin >> cardinality;
+                        userCheck();
+                        rs.minCardinality = cardinality;
+                        cout << "insert kind of primitive" << endl;
+                        getline(cin, label);
+                        rs.Primitive = label;
+                        retrievalSemantic.push_back(rs);
+                        srContinue = userCheckContinue("adding spatialRelationship?");
+                    } while (srContinue);
                 }
-                while(srContinue);
                 srv_semantic.request.retrieval =retrievalSemantic;
                 cout<<"calling the srv"<<endl ;
                 if(client_semantic.call(srv_semantic)){
