@@ -384,9 +384,9 @@ int main(int argc, char **argv) {
                             cout<<individuals[i]<<endl;
                         }
                         srv_score.request.semanticRetrieval=srv_semantic.response.retrievaled;
-                        if(client_score.call(srv_score)){
+                       // if(client_score.call(srv_score)){
                         //forgetting
-                        }
+                        //}
 
                     }
                 }
@@ -530,9 +530,9 @@ int main(int argc, char **argv) {
                         cout<<individuals[i]<<endl;
                     }
                     srv_score.request.episodicRetrieval=srv_episodic.response.retrievalEpisodic;
-                    if(client_score.call(srv_score)){
-                       // forgott
-                    }
+                    //if(client_score.call(srv_score)){
+                     //  // forgott
+                    //}
                 }
             }
 
