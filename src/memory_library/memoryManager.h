@@ -246,6 +246,33 @@ namespace memManager{
             }
 
         }
+    int  userDecisionForgetting(){
+
+        while (true){
+            string input="";
+            cout<<"What do you want to do ?\n- 1 Check item status;\n- 2 Force Forgetting of an Item ; \n- 3 Prevent an item from being forgetting\n- 4 Remove user no forget "
+                    "from an item "<<endl;
+            getline(cin,input);
+            if (input=="1"){
+                return 1;
+            }
+            else if (input=="2"){
+                return 2;
+            }
+            else if (input=="3"){
+                return 3;
+            }
+            else if (input=="4"){
+                return 4;
+            }
+
+            else {
+                cout<<"value not included in the interval,\n insert an integer value equal either to 1 or  2  or 3, \n please redo selection";
+            }
+
+        }
+
+    }
     bool userMemorizationDecision(){
         string input = "";
         while (true){

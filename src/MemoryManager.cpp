@@ -30,6 +30,7 @@ bool processPittInfo= false;
 vector<float> coefficientsFromRansacToSemantic(TrackedShape shape);
 string colorRetrieval(string color);
 string spatialRelRetrieval(string spatialRelation);
+void printCounterInfo(sit_msgs::ScoreCounter s , string counterType);
 void ransac_shape_acquisition(TrackedShapes RansacShapes){
     if(processPittInfo) {
 
@@ -530,9 +531,9 @@ int main(int argc, char **argv) {
                         cout<<individuals[i]<<endl;
                     }
                     srv_score.request.episodicRetrieval=srv_episodic.response.retrievalEpisodic;
-                    //if(client_score.call(srv_score)){
+                    if(client_score.call(srv_score)){
                      //  // forgott
-                    //}
+                    }
                 }
             }
 
@@ -540,6 +541,100 @@ int main(int argc, char **argv) {
         //forgetting
 
         else if(decision==3){
+            int forgettingDecision = userDecisionForgetting();
+            srv_score.request.Decision=decision;
+            srv_score.request.DecisionForgetting=forgettingDecision;
+            if(forgettingDecision==1){
+                cout<<"check classes"<<endl ;
+                if(client_score.call(srv_score)){
+
+                    vector<sit_msgs::ScoreCounter> semanticLowScore =srv_score.response.lowScoreSemantic;
+                    vector<sit_msgs::ScoreCounter> episodicLowScore =srv_score.response.lowScoreEpisodic;
+                    vector<sit_msgs::ScoreCounter> semanticToBeForgotten =srv_score.response.toBeForgottenSemantic;
+                    vector<sit_msgs::ScoreCounter> episodicToBeForgotten =srv_score.response.toBeForgottenEpisodic;
+                    vector<sit_msgs::ScoreCounter> semanticForgot =srv_score.response.forgotSemantic;
+                    vector<sit_msgs::ScoreCounter> episodicForgot =srv_score.response.forgotEpisodic;
+
+                    cout<<"SCORE CLASSES"<<endl;
+
+                    cout<<"--------------"<<endl;
+                    cout<<"LOW SCORE CLASSES:\n"<<endl;
+                    cout<<"SEMANTIC"<<endl;
+                    if(semanticLowScore.size()==0){
+                        cout<<"no low score semantic items.."<<endl;
+                    }
+                    else{
+                        for (int i=0; i<semanticLowScore.size(); i++){
+                            printCounterInfo(semanticLowScore[i] , "LowScore");
+                        }
+                    }
+                    cout<<"EPISODIC"<<endl;
+                    if(episodicLowScore.size()==0){
+                        cout<<"no low score episodic items.."<<endl;
+                    }
+                    else{
+                        for (int i=0; i<episodicLowScore.size(); i++){
+                            printCounterInfo(episodicLowScore[i] , "LowScore");
+                        }
+                    }
+                    cout<<"--------------"<<endl;
+                    cout<<"TO BE FORGOT CLASSES:\n"<<endl;
+                    cout<<"SEMANTIC"<<endl;
+                    if(semanticToBeForgotten.size()==0){
+                        cout<<"no to be forgotten  semantic items.."<<endl;
+                    }
+                    else{
+                        for (int i=0; i<semanticToBeForgotten.size(); i++){
+                            printCounterInfo(semanticToBeForgotten[i] , "To Be Forgotten ");
+                        }
+                    }
+                    cout<<"EPISODIC"<<endl;
+                    if(episodicToBeForgotten.size()==0){
+                        cout<<"no to be forgotten  episodic items.."<<endl;
+                    }
+                    else{
+                        for (int i=0; i<episodicToBeForgotten.size(); i++){
+                            printCounterInfo(episodicToBeForgotten[i] , "To Be Forgotten ");
+                        }
+                    }
+
+                    cout<<"--------------"<<endl;
+                    cout<<"FORGOT CLASSES:\n"<<endl;
+                    cout<<"SEMANTIC"<<endl;
+                    if(semanticForgot.size()==0){
+                        cout<<"no  forgot  semantic items.."<<endl;
+                    }
+                    else{
+                        for (int i=0; i<semanticForgot.size(); i++){
+                            printCounterInfo(semanticForgot[i] , "Forgot ");
+                        }
+                    }
+                    cout<<"EPISODIC"<<endl;
+                    if(episodicForgot.size()==0){
+                        cout<<"no forgot  episodic items.."<<endl;
+                    }
+                    else{
+                        for (int i=0; i<episodicForgot.size(); i++){
+                            printCounterInfo(episodicForgot[i] , "Forgot");
+                        }
+                    }
+                }
+            }
+                
+            //Force Forgetting of an item
+            else if(forgettingDecision==2){
+                cout<<"force forgetting"<<endl;
+                //call all the three services
+            }
+            else if (forgettingDecision==3){
+                cout<<"pur user no forgetting"<<endl;
+                //call only score service
+            }
+            else if(forgettingDecision==4){
+                cout<<"remove user no forgetting"<<endl;
+                //call only score service
+            }
+
 
         }
         ros::spinOnce();
@@ -602,5 +697,10 @@ string colorRetrieval(string color){
 };
 string spatialRelRetrieval(string spatialRelation){
     return SCENE_SPATIAL_PRFIX+spatialRelation;
+};
+void printCounterInfo(sit_msgs::ScoreCounter s , string counterType){
+    cout<<"name of the item "<<s.scoreName<<endl;
+    cout<<"value of the score "<<s.scoreValue<<endl;
+    cout<<"value of the "<<counterType<<" counter"<<s.counter<<endl;
 };
 
