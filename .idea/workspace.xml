@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0d71574-91b3-4eab-aa7c-06cea741eaae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManager.cpp" afterPath="$PROJECT_DIR$/src/MemoryManager.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/memory_library/memoryManager.h" afterPath="$PROJECT_DIR$/src/memory_library/memoryManager.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +29,18 @@
       <file leaf-file-name="MemoryManager.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="622" column="16" lean-forward="false" selection-start-line="622" selection-start-column="16" selection-end-line="622" selection-end-column="16" />
+            <state relative-caret-position="473">
+              <caret line="679" column="38" lean-forward="true" selection-start-line="679" selection-start-column="38" selection-end-line="679" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="memoryManager.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="295" column="9" lean-forward="false" selection-start-line="295" selection-start-column="9" selection-end-line="295" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -294,12 +303,12 @@
       <workItem from="1499749715804" duration="2087000" />
       <workItem from="1499758419840" duration="1377000" />
       <workItem from="1499921394856" duration="1222000" />
-      <workItem from="1500270565116" duration="3252000" />
+      <workItem from="1500270565116" duration="5649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7938000" />
+    <option name="totallyTimeSpent" value="10335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1215" height="776" extended-state="6" />
@@ -393,16 +402,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="248" column="4" lean-forward="true" selection-start-line="248" selection-start-column="4" selection-end-line="248" selection-end-column="33" />
+        <state relative-caret-position="216">
+          <caret line="295" column="9" lean-forward="false" selection-start-line="295" selection-start-column="9" selection-end-line="295" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="622" column="16" lean-forward="false" selection-start-line="622" selection-start-column="16" selection-end-line="622" selection-end-column="16" />
+        <state relative-caret-position="473">
+          <caret line="679" column="38" lean-forward="true" selection-start-line="679" selection-start-column="38" selection-end-line="679" selection-end-column="38" />
           <folding />
         </state>
       </provider>

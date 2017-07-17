@@ -620,19 +620,70 @@ int main(int argc, char **argv) {
                     }
                 }
             }
-                
+
             //Force Forgetting of an item
             else if(forgettingDecision==2){
-                cout<<"force forgetting"<<endl;
-                //call all the three services
+                vector<string> episodic;
+                vector<string> semantic;
+                bool Continue = false;
+                if(userRetrievalAdd("Episodic Item Name to be Deleted ")){
+                    do{
+                        string Name="";
+                        cout<<"insert name"<<endl;
+                        getline(cin,Name);
+                        episodic.push_back(Name);
+                        Continue= userCheckContinue("adding episodic item ");
+                    }
+                    while(Continue);
+                    srv_score.request.episodicForgot=episodic;
+
+                }
+                if(userRetrievalAdd("Semantic Item Name to be Deleted ")){
+                    do{
+                        string Name="";
+                        cout<<"insert name"<<endl;
+                        getline(cin,Name);
+                        semantic.push_back(Name);
+                        Continue= userCheckContinue("adding semantic item to be Deleted ");
+                    }
+                    while(Continue);
+                    srv_score.request.semanticForgot=semantic;
+
+                }
+                if(client_score.call(srv_score)){
+                    //call also semantic and episodic services to delete items;
+
+                }
+
             }
             else if (forgettingDecision==3){
-                cout<<"pur user no forgetting"<<endl;
-                //call only score service
+                vector<string> userPutNoForget;
+                bool Continue = false ;
+                do{
+                    string Name="";
+                    cout<<"insert name"<<endl;
+                    getline(cin,Name);
+                    userPutNoForget.push_back(Name);
+                    Continue= userCheckContinue("adding item to save");
+                }
+                while(Continue);
+                srv_score.request.userPutNoForget=userPutNoForget;
+
+
             }
             else if(forgettingDecision==4){
-                cout<<"remove user no forgetting"<<endl;
-                //call only score service
+                vector<string> userRemoveNoForget;
+                bool Continue = false ;
+                do{
+                    string Name="";
+                    cout<<"insert name"<<endl;
+                    getline(cin,Name);
+                    userRemoveNoForget.push_back(Name);
+                    Continue= userCheckContinue("adding item to remove user no forget");
+                }
+                while(Continue);
+                srv_score.request.userRemoveNoForget=userRemoveNoForget;
+
             }
 
 
