@@ -385,7 +385,9 @@ int main(int argc, char **argv) {
                             cout<<individuals[i]<<endl;
                         }
                         srv_score.request.semanticRetrieval=srv_semantic.response.retrievaled;
-                       // if(client_score.call(srv_score)){
+                        srv_score.request.resetCounter = srv_semantic.response.resetCounter;
+                        srv_score.request.userNoForget = srv_semantic.response.userNoForget;
+                        // if(client_score.call(srv_score)){
                         //forgetting
                         //}
 
@@ -531,6 +533,8 @@ int main(int argc, char **argv) {
                         cout<<individuals[i]<<endl;
                     }
                     srv_score.request.episodicRetrieval=srv_episodic.response.retrievalEpisodic;
+                    srv_score.request.resetCounter = srv_episodic.response.resetCounter;
+                    srv_score.request.userNoForget = srv_episodic.response.userNoForget;
                     if(client_score.call(srv_score)){
                      //  // forgott
                     }
@@ -668,6 +672,7 @@ int main(int argc, char **argv) {
                 }
                 while(Continue);
                 srv_score.request.userPutNoForget=userPutNoForget;
+                client_score.call(srv_score);
 
 
             }
@@ -683,6 +688,7 @@ int main(int argc, char **argv) {
                 }
                 while(Continue);
                 srv_score.request.userRemoveNoForget=userRemoveNoForget;
+                client_score.call(srv_score);
 
             }
 
