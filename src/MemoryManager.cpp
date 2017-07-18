@@ -688,6 +688,58 @@ int main(int argc, char **argv) {
 
 
         }
+        else if (decision==4)
+        {
+            if (receivedNewShapes) {
+                //calling the semantic service
+                for (int i = 0; i < correctedRansacShapes.tracked_shapes.size(); i++) {
+                    cout << "filling the srv request " << endl;
+                    atom shapeSemanticService;
+                    TrackedShape shapeRansac = correctedRansacShapes.tracked_shapes[i];
+                    shapeSemanticService.type = shapeRansac.shape_tag;
+                    shapeSemanticService.coefficients = coefficientsFromRansacToSemantic(shapeRansac);
+                    shapeSemanticService.color = shapeRansac.color.data;
+                    srv_semantic.request.geometricPrimitives.push_back(shapeSemanticService);
+                }
+                cout << "calling the service" << endl;
+                if (client_semantic.call(srv_semantic)) {
+                    cout << "called the service" << endl;
+                    //calling the episodic service
+                    srv_episodic.request.SceneName = srv_semantic.response.SceneName;
+                    cout << "Scene Name \n" << srv_semantic.response.SceneName << endl;
+
+                    srv_episodic.request.Object = srv_semantic.response.Objects;
+                    string support = "";
+                    userCheck();
+                    cout << "please insert the support Name" << endl;
+                    getline(cin, support);
+                    srv_episodic.request.SupportName = support;
+                    if (client_episodic.call(srv_episodic)) {
+                        cout << "episodic name" << srv_episodic.response.EpisodicSceneName << endl;
+                        receivedNewShapes = false;
+                        vector<string> semanticRecognition;
+                        semanticRecognition.push_back(srv_semantic.response.SceneName);
+                        vector<string> episodicRecognition;
+                        episodicRecognition.push_back(srv_episodic.response.EpisodicSceneName);
+                        srv_score.request.episodicRetrieval=episodicRecognition;
+                        srv_score.request.semanticRetrieval=semanticRecognition;
+                        if(client_score.call(srv_score)){
+
+                        }
+
+                    }
+
+
+
+                }
+
+
+
+            }
+
+
+
+        }
         ros::spinOnce();
         loop_rate.sleep();
 

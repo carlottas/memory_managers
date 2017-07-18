@@ -227,7 +227,7 @@ namespace memManager{
 
             while (true){
                 string input="";
-                cout<<"What do you want to do ?\n- 1 Memorize new items;\n- 2 Retrieve store items; \n- 3 Force Forgetting\n";
+                cout<<"What do you want to do ?\n- 1 Memorize new items;\n- 2 Retrieve store items; \n- 3 Force Forgetting\n,-4 Recognition\n";
                 getline(cin,input);
                 if (input=="1"){
                     return 1;
@@ -237,6 +237,10 @@ namespace memManager{
                 }
                 else if (input=="3"){
                     return 3;
+                }
+
+                else if (input=="4"){
+                    return 4;
                 }
 
                 else {
