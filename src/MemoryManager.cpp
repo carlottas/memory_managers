@@ -729,6 +729,22 @@ int main(int argc, char **argv) {
                         episodicRecognition.push_back(srv_episodic.response.EpisodicSceneName);
                         srv_score.request.episodicRetrieval=episodicRecognition;
                         srv_score.request.semanticRetrieval=semanticRecognition;
+                        vector<string> resetCounter ;
+                        for (int i =0; i<srv_semantic.response.resetCounter.size();i++) {
+                            resetCounter.push_back(srv_semantic.response.resetCounter[i]);
+                        }
+                        for (int i =0; i<srv_semantic.response.resetCounter.size();i++) {
+                            resetCounter.push_back(srv_episodic.response.resetCounter[i]);
+                        }
+                        vector<string> userNoForget ;
+                        for (int i =0; i<srv_semantic.response.resetCounter.size();i++) {
+                            userNoForget.push_back(srv_semantic.response.userNoForget[i]);
+                        }
+                        for (int i =0; i<srv_semantic.response.resetCounter.size();i++) {
+                            userNoForget.push_back(srv_episodic.response.userNoForget[i]);
+                        }
+                        srv_score.request.userNoForget=userNoForget;
+                        srv_score.request.resetCounter=resetCounter;
                         if(client_score.call(srv_score)){
 
                         }
