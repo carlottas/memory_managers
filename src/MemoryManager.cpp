@@ -387,9 +387,9 @@ int main(int argc, char **argv) {
                         srv_score.request.semanticRetrieval=srv_semantic.response.retrievaled;
                         srv_score.request.resetCounter = srv_semantic.response.resetCounter;
                         srv_score.request.userNoForget = srv_semantic.response.userNoForget;
-                        // if(client_score.call(srv_score)){
+                         if(client_score.call(srv_score)){
                         //forgetting
-                        //}
+                        }
 
                     }
                 }
