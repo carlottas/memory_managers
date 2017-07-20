@@ -388,7 +388,23 @@ int main(int argc, char **argv) {
                         srv_score.request.resetCounter = srv_semantic.response.resetCounter;
                         srv_score.request.userNoForget = srv_semantic.response.userNoForget;
                          if(client_score.call(srv_score)){
-                        //forgetting
+                             SemanticInterface srv_semantic_forgot;
+                             EpisodicInterface srv_episodic_forgot;
+                             srv_semantic_forgot.request.Decision=0;
+                             srv_episodic_forgot.request.Decision=0;
+                             srv_semantic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
+                             srv_semantic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
+                             srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
+                             srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
+                             srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
+                             if(client_episodic.call(srv_episodic_forgot)){
+                                 if(client_semantic.call(srv_semantic_forgot)){
+
+                                 }
+                             }
+
+
+
                         }
 
                     }
@@ -677,6 +693,7 @@ int main(int argc, char **argv) {
 
             }
             else if(forgettingDecision==4){
+
                 vector<string> userRemoveNoForget;
                 bool Continue = false ;
                 do{
@@ -689,6 +706,38 @@ int main(int argc, char **argv) {
                 while(Continue);
                 srv_score.request.userRemoveNoForget=userRemoveNoForget;
                 client_score.call(srv_score);
+                //todo check whether riclassification occurs  
+                /*
+                if(client_semantic.call(srv_semantic)){
+                    cout<<"individuals of Scene0 "<<srv_semantic.response.SceneName<<endl;
+                    vector <string> individuals1= srv_semantic.response.resetCounter;
+                    cout<<"individuals of Scene1"<<endl;
+                    for (int i = 0; i < individuals1.size();i++){
+                        cout<<"individual"<<endl;
+                        cout<<individuals1[i]<<endl;
+                    }
+                    vector <string> individuals2= srv_semantic.response.userNoForget;
+                    cout<<"individuals of Scene2"<<endl;
+                    for (int i = 0; i < individuals2.size();i++){
+                        cout<<"individual"<<endl;
+                        cout<<individuals2[i]<<endl;
+                    }
+                    vector <string> individuals3= srv_semantic.response.FirstSuperClass;
+                    cout<<"individuals of Scene3"<<endl;
+                    for (int i = 0; i < individuals3.size();i++){
+                        cout<<"individual"<<endl;
+                        cout<<individuals3[i]<<endl;
+                    }
+                    vector <string> individuals4= srv_semantic.response.isFirstSuperClassOf;
+                    cout<<"individuals of Scene4"<<endl;
+                    for (int i = 0; i < individuals4.size();i++){
+                        cout<<"individual"<<endl;
+                        cout<<individuals4[i]<<endl;
+                    }
+
+                }
+*/
+
 
             }
 
