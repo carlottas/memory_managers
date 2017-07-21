@@ -415,7 +415,7 @@ int main(int argc, char **argv) {
 
                              srv_semantic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
                              srv_semantic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
-                             srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
+                             srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotEpisodic;
                              srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
                              srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
                              if(client_episodic.call(srv_episodic_forgot)){
