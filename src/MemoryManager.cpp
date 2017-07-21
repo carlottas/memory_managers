@@ -579,14 +579,14 @@ int main(int argc, char **argv) {
                         srv_episodic_forgot.request.Decision=0;
                         srv_semantic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
                         srv_semantic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
-                        srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
-                        srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
-                        srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
-                        if(client_episodic.call(srv_episodic_forgot)){
+                       // srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
+                        //srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
+                        //srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
+                        //if(client_episodic.call(srv_episodic_forgot)){
                             if(client_semantic.call(srv_semantic_forgot)){
 
                             }
-                        }
+                        //}
 
 
                     }
