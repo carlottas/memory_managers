@@ -378,12 +378,12 @@ int main(int argc, char **argv) {
                     }
                     srv_episodic.request.retrievalSemantic=retrievaledClasses;
                     cout<<"calling episdic srv"<<endl;
-                    //if(client_episodic.call(srv_episodic)){
-                     //   vector<string>  individuals= srv_episodic.response.retrievalSemantic;
-                      //  for (int i=0; i<individuals.size();i++){
-                       //     cout<<"classes retrieved"<<endl;
-                        //    cout<<individuals[i]<<endl;
-                        //}
+                    if(client_episodic.call(srv_episodic)){
+                       vector<string>  individuals= srv_episodic.response.retrievalSemantic;
+                        for (int i=0; i<individuals.size();i++){
+                            cout<<"individuals retrieved"<<endl;
+                            cout<<individuals[i]<<endl;
+                        }
                         srv_score.request.semanticRetrieval=srv_semantic.response.retrievaled;
                         srv_score.request.resetCounter = srv_semantic.response.resetCounter;
                         srv_score.request.userNoForget = srv_semantic.response.userNoForget;
@@ -428,7 +428,7 @@ int main(int argc, char **argv) {
 
                         }
 
-                   // }
+                    }
                 }
 
             }
@@ -579,14 +579,14 @@ int main(int argc, char **argv) {
                         srv_episodic_forgot.request.Decision=0;
                         srv_semantic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
                         srv_semantic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
-                       // srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
-                        //srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
-                        //srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
-                        //if(client_episodic.call(srv_episodic_forgot)){
+                        srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
+                        srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
+                        srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
+                        if(client_episodic.call(srv_episodic_forgot)){
                             if(client_semantic.call(srv_semantic_forgot)){
 
                             }
-                        //}
+                        }
 
 
                     }

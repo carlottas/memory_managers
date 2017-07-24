@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0d71574-91b3-4eab-aa7c-06cea741eaae" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManager.cpp" afterPath="$PROJECT_DIR$/src/MemoryManager.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -29,10 +30,10 @@
       <file leaf-file-name="MemoryManager.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2826">
-              <caret line="573" column="52" lean-forward="false" selection-start-line="573" selection-start-column="52" selection-end-line="573" selection-end-column="52" />
+            <state relative-caret-position="331">
+              <caret line="910" column="34" lean-forward="false" selection-start-line="910" selection-start-column="34" selection-end-line="910" selection-end-column="34" />
               <folding>
-                <element signature="e#41294#43258#0" expanded="false" />
+                <element signature="e#41273#43237#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -316,12 +317,13 @@
       <workItem from="1500602934368" duration="1511000" />
       <workItem from="1500615528294" duration="608000" />
       <workItem from="1500617415560" duration="1062000" />
-      <workItem from="1500622043422" duration="2080000" />
+      <workItem from="1500622043422" duration="2447000" />
+      <workItem from="1500875472663" duration="1211000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29262000" />
+    <option name="totallyTimeSpent" value="30840000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1215" height="776" extended-state="6" />
@@ -359,10 +361,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#41273#43237#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4320">
+          <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7182">
           <caret line="399" column="32" lean-forward="false" selection-start-line="399" selection-start-column="32" selection-end-line="399" selection-end-column="32" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -380,7 +400,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -398,7 +418,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -416,7 +436,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -434,7 +454,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -452,7 +472,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -470,7 +490,7 @@
         <state relative-caret-position="7038">
           <caret line="391" column="24" lean-forward="false" selection-start-line="391" selection-start-column="24" selection-end-line="391" selection-end-column="24" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -488,7 +508,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -506,7 +526,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -524,7 +544,7 @@
         <state relative-caret-position="12222">
           <caret line="679" column="38" lean-forward="true" selection-start-line="679" selection-start-column="38" selection-end-line="679" selection-end-column="38" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -542,7 +562,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -559,7 +579,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -576,7 +596,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -597,10 +617,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2826">
-          <caret line="573" column="52" lean-forward="false" selection-start-line="573" selection-start-column="52" selection-end-line="573" selection-end-column="52" />
+        <state relative-caret-position="331">
+          <caret line="910" column="34" lean-forward="false" selection-start-line="910" selection-start-column="34" selection-end-line="910" selection-end-column="34" />
           <folding>
-            <element signature="e#41294#43258#0" expanded="false" />
+            <element signature="e#41273#43237#0" expanded="false" />
           </folding>
         </state>
       </provider>
