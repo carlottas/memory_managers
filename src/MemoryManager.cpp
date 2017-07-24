@@ -27,10 +27,7 @@ TrackedShapes correctedRansacShapes;
 bool receivedNewShapes=false;
 bool processPittInfo= false;
 
-vector<float> coefficientsFromRansacToSemantic(TrackedShape shape);
-string colorRetrieval(string color);
-string spatialRelRetrieval(string spatialRelation);
-void printCounterInfo(sit_msgs::ScoreCounter s , string counterType);
+
 void ransac_shape_acquisition(TrackedShapes RansacShapes){
     if(processPittInfo) {
 
@@ -854,63 +851,4 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-vector <float> coefficientsFromRansacToSemantic(TrackedShape shape){
-    vector <float> coefficientsRansac;
-    coefficientsRansac.push_back(shape.x_pc_centroid);
-    coefficientsRansac.push_back(shape.y_pc_centroid);
-    coefficientsRansac.push_back(shape.z_pc_centroid);
-    if(shape.shape_tag==SPHERE){
-        coefficientsRansac.push_back(shape.coefficients[3]);
-    }
-    else if (shape.shape_tag==CYLINDER){
-        coefficientsRansac.push_back(shape.coefficients[0]);
-        coefficientsRansac.push_back(shape.coefficients[1]);
-        coefficientsRansac.push_back(shape.coefficients[2]);
-        coefficientsRansac.push_back(shape.coefficients[3]);
-        coefficientsRansac.push_back(shape.coefficients[4]);
-        coefficientsRansac.push_back(shape.coefficients[5]);
-        coefficientsRansac.push_back(shape.coefficients[6]);
-        //height of the cylinder since it is not given
-        cout<<"insert value for height cyilinder"<<endl;
-        float height;
-        cin>>height;
-        coefficientsRansac.push_back(height);
-    }
-    else if (shape.shape_tag==CONE){
-       coefficientsRansac.push_back(shape.coefficients[0]);
-        coefficientsRansac.push_back(shape.coefficients[1]);
-        coefficientsRansac.push_back(shape.coefficients[2]);
-        coefficientsRansac.push_back(shape.coefficients[3]);
-        coefficientsRansac.push_back(shape.coefficients[4]);
-        coefficientsRansac.push_back(shape.coefficients[5]);
-        //radius
-        cout<<"insert value for radius cone"<<endl;
-        float radius;
-        cin>>radius;
-        coefficientsRansac.push_back(radius);
-        //height
-        cout<<"insert value for height cone"<<endl;
-        float height;
-        cin>>height;
-        coefficientsRansac.push_back(height);
-    }
-    else if (shape.shape_tag==PLANE){
-        coefficientsRansac.insert(coefficientsRansac.end(),shape.coefficients.begin(),shape.coefficients.end());
-    }
-
-    return coefficientsRansac;
-
-
-}
-string colorRetrieval(string color){
-    return SCENE_SPATIAL_PRFIX+color;
-};
-string spatialRelRetrieval(string spatialRelation){
-    return SCENE_SPATIAL_PRFIX+spatialRelation;
-};
-void printCounterInfo(sit_msgs::ScoreCounter s , string counterType){
-    cout<<"name of the item "<<s.scoreName<<endl;
-    cout<<"value of the score "<<s.scoreValue<<endl;
-    cout<<"value of the "<<counterType<<" counter"<<s.counter<<endl;
-};
 
