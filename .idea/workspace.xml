@@ -9,10 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d71574-91b3-4eab-aa7c-06cea741eaae" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManager.cpp" afterPath="$PROJECT_DIR$/src/MemoryManager.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/memory_library/memoryManager.h" afterPath="$PROJECT_DIR$/src/memory_library/memoryManager.h" />
-    </list>
+    <list default="true" id="e0d71574-91b3-4eab-aa7c-06cea741eaae" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +27,7 @@
       <file leaf-file-name="MemoryManager.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="414">
               <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="e#722#6305#0" expanded="false" />
@@ -42,8 +39,8 @@
       <file leaf-file-name="memoryManager.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+            <state relative-caret-position="18">
+              <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
               <folding>
                 <element signature="e#8621#9153#0" expanded="false" />
                 <element signature="e#9159#9635#0" expanded="false" />
@@ -329,14 +326,15 @@
       <workItem from="1500617415560" duration="1062000" />
       <workItem from="1500622043422" duration="2447000" />
       <workItem from="1500875472663" duration="2936000" />
+      <workItem from="1500962163182" duration="2000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32565000" />
+    <option name="totallyTimeSpent" value="32567000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1215" height="776" extended-state="7" />
+    <frame x="65" y="24" width="1215" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10151007" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -369,6 +367,34 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#722#6305#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding>
+            <element signature="e#8621#9153#0" expanded="false" />
+            <element signature="e#9159#9635#0" expanded="false" />
+            <element signature="e#9641#10122#0" expanded="false" />
+            <element signature="e#10127#10732#0" expanded="false" />
+            <element signature="e#10742#11557#0" expanded="false" />
+            <element signature="e#11562#12381#0" expanded="false" />
+            <element signature="e#12386#12857#0" expanded="false" />
+            <element signature="e#12862#13337#0" expanded="false" />
+            <element signature="e#13343#15484#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -737,7 +763,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="414">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="e#722#6305#0" expanded="false" />
@@ -747,8 +773,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        <state relative-caret-position="18">
+          <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding>
             <element signature="e#8621#9153#0" expanded="false" />
             <element signature="e#9159#9635#0" expanded="false" />
