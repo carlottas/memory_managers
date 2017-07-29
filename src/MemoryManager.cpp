@@ -156,20 +156,22 @@ int main(int argc, char **argv) {
     ros::Subscriber subPITT = node.subscribe(PITT_TOPIC,1000, ransac_shape_acquisition);
     //declaration of the services
     ServiceClient client_semantic = nodePtr->serviceClient < SemanticInterface > (SRV_SEMANTIC);
-    SemanticInterface srv_semantic;
+
     ServiceClient client_episodic = nodePtr->serviceClient < EpisodicInterface > (SRV_EPISODIC);
-    EpisodicInterface srv_episodic;
+
     ServiceClient client_score = nodePtr->serviceClient < ScoreInterface > (SRV_SCORE);
-    ScoreInterface srv_score;
+
     processPittInfo= true;
     ros::Rate loop_rate(10);
 
 
     while (ros::ok()) {
        // if(receivedNewShapes){
-
+            SemanticInterface srv_semantic;
+            EpisodicInterface srv_episodic;
+            ScoreInterface srv_score;
             //Calling the scene service
-/*
+            correctedRansacShapes.tracked_shapes.clear();
             //Todo delate only for testing without pitt
             TrackedShape shapeSphere;
             shapeSphere.shape_tag=SPHERE;
@@ -197,11 +199,11 @@ int main(int argc, char **argv) {
             coefficient1.push_back(-0.015);
             coefficient1.push_back(-0.99);
             coefficient1.push_back(0.015);
-
             shapeSphere1.coefficients=coefficient1;
             shapeSphere1.color.data="green";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere1);
-            TrackedShape shapeSphere2;
+
+        /*TrackedShape shapeSphere2;
             shapeSphere2.shape_tag=CONE;
             shapeSphere2.x_pc_centroid= 0.50;
             shapeSphere2.y_pc_centroid= -0.40;
@@ -217,8 +219,9 @@ int main(int argc, char **argv) {
             shapeSphere2.coefficients=coefficient2;
             shapeSphere2.color.data="blue";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere2);
-            receivedNewShapes=true;
             */
+            receivedNewShapes=true;
+
         int decision = userDecision();
         srv_semantic.request.Decision=decision;
         srv_episodic.request.Decision=decision;
@@ -384,6 +387,7 @@ int main(int argc, char **argv) {
                         srv_score.request.semanticRetrieval=srv_semantic.response.retrievaled;
                         srv_score.request.resetCounter = srv_semantic.response.resetCounter;
                         srv_score.request.userNoForget = srv_semantic.response.userNoForget;
+
                          if(client_score.call(srv_score)){
                              SemanticInterface srv_semantic_forgot;
                              EpisodicInterface srv_episodic_forgot;
@@ -424,6 +428,7 @@ int main(int argc, char **argv) {
 
 
                         }
+                        
 
                     }
                 }
@@ -803,14 +808,19 @@ int main(int argc, char **argv) {
                     getline(cin, support);
                     srv_episodic.request.SupportName = support;
                     if (client_episodic.call(srv_episodic)) {
+
                         cout << "episodic name" << srv_episodic.response.EpisodicSceneName << endl;
                         receivedNewShapes = false;
                         vector<string> semanticRecognition;
                         semanticRecognition.push_back(srv_semantic.response.SceneName);
                         vector<string> episodicRecognition;
                         episodicRecognition.push_back(srv_episodic.response.EpisodicSceneName);
-                        srv_score.request.episodicRetrieval=episodicRecognition;
-                        srv_score.request.semanticRetrieval=semanticRecognition;
+                        if(!episodicRecognition.empty()) {
+                            srv_score.request.episodicRetrieval = episodicRecognition;
+                        }
+                        if(!semanticRecognition.empty()) {
+                            srv_score.request.semanticRetrieval = semanticRecognition;
+                        }
                         vector<string> resetCounter ;
                         for (int i =0; i<srv_semantic.response.resetCounter.size();i++) {
                             resetCounter.push_back(srv_semantic.response.resetCounter[i]);
@@ -828,10 +838,25 @@ int main(int argc, char **argv) {
                         srv_score.request.userNoForget=userNoForget;
                         srv_score.request.resetCounter=resetCounter;
                         if(client_score.call(srv_score)){
+                            SemanticInterface srv_semantic_forgot;
+                            EpisodicInterface srv_episodic_forgot;
+                            srv_semantic_forgot.request.Decision=0;
+                            srv_episodic_forgot.request.Decision=0;
+                            srv_semantic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
+                            srv_semantic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
+                            srv_episodic_forgot.request.toBeForget=srv_score.response.putForgotSemantic;
+                            srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
+                            srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
+                            if(client_episodic.call(srv_episodic_forgot)){
+                                if(client_semantic.call(srv_semantic_forgot)){
+
+                                }
+                            }
 
                         }
 
                     }
+
 
 
 
