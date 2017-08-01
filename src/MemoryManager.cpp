@@ -30,7 +30,7 @@ bool processPittInfo= false;
 
 void ransac_shape_acquisition(TrackedShapes RansacShapes){
     if(processPittInfo) {
-
+          correctedRansacShapes.tracked_shapes.clear();
         for (int i = 0; i < RansacShapes.tracked_shapes.size(); i++) {
             TrackedShape shape = RansacShapes.tracked_shapes[i];
             cout << shape.object_id << endl;
@@ -88,7 +88,7 @@ void ransac_shape_acquisition(TrackedShapes RansacShapes){
                             cout << "z centroid " << shape.z_pc_centroid << endl;
                             cout << "insert new z centroid" << endl;
                             cin >> newZCentroid;
-                            shapeNew.z_pc_centroid = newYCentroid;
+                            shapeNew.z_pc_centroid = newZCentroid;
                         } else {
                             shapeNew.x_pc_centroid = shape.x_pc_centroid;
                             shapeNew.y_pc_centroid = shape.y_pc_centroid;
@@ -160,18 +160,19 @@ int main(int argc, char **argv) {
     ServiceClient client_episodic = nodePtr->serviceClient < EpisodicInterface > (SRV_EPISODIC);
 
     ServiceClient client_score = nodePtr->serviceClient < ScoreInterface > (SRV_SCORE);
-
+    SemanticInterface srv_semantic;
+    EpisodicInterface srv_episodic;
+    ScoreInterface srv_score;
     processPittInfo= true;
     ros::Rate loop_rate(10);
 
 
     while (ros::ok()) {
        // if(receivedNewShapes){
-            SemanticInterface srv_semantic;
-            EpisodicInterface srv_episodic;
-            ScoreInterface srv_score;
+
             //Calling the scene service
-            correctedRansacShapes.tracked_shapes.clear();
+
+/*
             //Todo delate only for testing without pitt
             TrackedShape shapeSphere;
             shapeSphere.shape_tag=SPHERE;
@@ -186,6 +187,20 @@ int main(int argc, char **argv) {
             shapeSphere.coefficients=coefficient;
             shapeSphere.color.data="red";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere);
+        TrackedShape shapeSphere1;
+        shapeSphere1.shape_tag=SPHERE;
+        shapeSphere1.x_pc_centroid=0.7;
+        shapeSphere1.y_pc_centroid=0.013;
+        shapeSphere1.z_pc_centroid=0.70;
+        vector<float> coefficient1;
+        coefficient1.push_back(0.7);
+        coefficient1.push_back(0.013);
+        coefficient1.push_back(0.70);
+        coefficient1.push_back(0.03);
+        shapeSphere1.coefficients=coefficient;
+        shapeSphere1.color.data="blue";
+        correctedRansacShapes.tracked_shapes.push_back(shapeSphere1);
+
             TrackedShape shapeSphere1;
             shapeSphere1.shape_tag=CYLINDER;
             shapeSphere1.x_pc_centroid= 0.65;
@@ -203,7 +218,8 @@ int main(int argc, char **argv) {
             shapeSphere1.color.data="green";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere1);
 
-        /*TrackedShape shapeSphere2;
+
+            TrackedShape shapeSphere2;
             shapeSphere2.shape_tag=CONE;
             shapeSphere2.x_pc_centroid= 0.50;
             shapeSphere2.y_pc_centroid= -0.40;
@@ -219,8 +235,9 @@ int main(int argc, char **argv) {
             shapeSphere2.coefficients=coefficient2;
             shapeSphere2.color.data="blue";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere2);
-            */
+*/
             receivedNewShapes=true;
+
 
         int decision = userDecision();
         srv_semantic.request.Decision=decision;
@@ -421,7 +438,7 @@ int main(int argc, char **argv) {
                              srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
                              if(client_episodic.call(srv_episodic_forgot)){
                                  if(client_semantic.call(srv_semantic_forgot)){
-
+                                     correctedRansacShapes.tracked_shapes.clear();
                                  }
                              }
 

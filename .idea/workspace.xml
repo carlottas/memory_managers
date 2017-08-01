@@ -9,7 +9,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d71574-91b3-4eab-aa7c-06cea741eaae" name="Default" comment="" />
+    <list default="true" id="e0d71574-91b3-4eab-aa7c-06cea741eaae" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManager.cpp" afterPath="$PROJECT_DIR$/src/MemoryManager.cpp" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,10 +30,10 @@
       <file leaf-file-name="MemoryManager.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4468">
-              <caret line="851" column="0" lean-forward="true" selection-start-line="851" selection-start-column="0" selection-end-line="851" selection-end-column="0" />
+            <state relative-caret-position="528">
+              <caret line="290" column="38" lean-forward="false" selection-start-line="290" selection-start-column="38" selection-end-line="290" selection-end-column="38" />
               <folding>
-                <element signature="e#722#6305#0" expanded="false" />
+                <element signature="e#722#6360#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -39,8 +42,8 @@
       <file leaf-file-name="memoryManager.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="5976">
+              <caret line="332" column="71" lean-forward="false" selection-start-line="332" selection-start-column="71" selection-end-line="332" selection-end-column="71" />
               <folding>
                 <element signature="e#8621#9153#0" expanded="false" />
                 <element signature="e#9159#9635#0" expanded="false" />
@@ -50,7 +53,6 @@
                 <element signature="e#11562#12381#0" expanded="false" />
                 <element signature="e#12386#12857#0" expanded="false" />
                 <element signature="e#12862#13337#0" expanded="false" />
-                <element signature="e#13343#15484#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -134,6 +136,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PITT" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
@@ -333,19 +336,23 @@
       <workItem from="1501231063190" duration="1829000" />
       <workItem from="1501245014323" duration="6000" />
       <workItem from="1501292189405" duration="1492000" />
+      <workItem from="1501478456018" duration="766000" />
+      <workItem from="1501480838070" duration="2937000" />
+      <workItem from="1501554154170" duration="1083000" />
+      <workItem from="1501556057744" duration="38000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40309000" />
+    <option name="totallyTimeSpent" value="45133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1215" height="776" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10151007" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12684366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12684366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -378,15 +385,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="5976">
+          <caret line="332" column="71" lean-forward="true" selection-start-line="332" selection-start-column="71" selection-end-line="332" selection-end-column="71" />
           <folding>
             <element signature="e#8621#9153#0" expanded="false" />
             <element signature="e#9159#9635#0" expanded="false" />
@@ -396,91 +403,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14778">
-          <caret line="821" column="25" lean-forward="true" selection-start-line="821" selection-start-column="25" selection-end-line="821" selection-end-column="25" />
-          <folding>
-            <element signature="e#722#6305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#8621#9153#0" expanded="false" />
-            <element signature="e#9159#9635#0" expanded="false" />
-            <element signature="e#9641#10122#0" expanded="false" />
-            <element signature="e#10127#10732#0" expanded="false" />
-            <element signature="e#10742#11557#0" expanded="false" />
-            <element signature="e#11562#12381#0" expanded="false" />
-            <element signature="e#12386#12857#0" expanded="false" />
-            <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14670">
-          <caret line="815" column="55" lean-forward="false" selection-start-line="815" selection-start-column="55" selection-end-line="815" selection-end-column="55" />
-          <folding>
-            <element signature="e#722#6305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#8621#9153#0" expanded="false" />
-            <element signature="e#9159#9635#0" expanded="false" />
-            <element signature="e#9641#10122#0" expanded="false" />
-            <element signature="e#10127#10732#0" expanded="false" />
-            <element signature="e#10742#11557#0" expanded="false" />
-            <element signature="e#11562#12381#0" expanded="false" />
-            <element signature="e#12386#12857#0" expanded="false" />
-            <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="220" column="0" lean-forward="false" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-          <folding>
-            <element signature="e#722#6305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#8621#9153#0" expanded="false" />
-            <element signature="e#9159#9635#0" expanded="false" />
-            <element signature="e#9641#10122#0" expanded="false" />
-            <element signature="e#10127#10732#0" expanded="false" />
-            <element signature="e#10742#11557#0" expanded="false" />
-            <element signature="e#11562#12381#0" expanded="false" />
-            <element signature="e#12386#12857#0" expanded="false" />
-            <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -490,7 +412,169 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#8621#9153#0" expanded="false" />
+            <element signature="e#9159#9635#0" expanded="false" />
+            <element signature="e#9641#10122#0" expanded="false" />
+            <element signature="e#10127#10732#0" expanded="false" />
+            <element signature="e#10742#11557#0" expanded="false" />
+            <element signature="e#11562#12381#0" expanded="false" />
+            <element signature="e#12386#12857#0" expanded="false" />
+            <element signature="e#12862#13337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15318">
+          <caret line="851" column="0" lean-forward="true" selection-start-line="851" selection-start-column="0" selection-end-line="851" selection-end-column="0" />
+          <folding>
+            <element signature="e#722#6360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#8621#9153#0" expanded="false" />
+            <element signature="e#9159#9635#0" expanded="false" />
+            <element signature="e#9641#10122#0" expanded="false" />
+            <element signature="e#10127#10732#0" expanded="false" />
+            <element signature="e#10742#11557#0" expanded="false" />
+            <element signature="e#11562#12381#0" expanded="false" />
+            <element signature="e#12386#12857#0" expanded="false" />
+            <element signature="e#12862#13337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#722#6360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#8621#9153#0" expanded="false" />
+            <element signature="e#9159#9635#0" expanded="false" />
+            <element signature="e#9641#10122#0" expanded="false" />
+            <element signature="e#10127#10732#0" expanded="false" />
+            <element signature="e#10742#11557#0" expanded="false" />
+            <element signature="e#11562#12381#0" expanded="false" />
+            <element signature="e#12386#12857#0" expanded="false" />
+            <element signature="e#12862#13337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14778">
+          <caret line="821" column="25" lean-forward="true" selection-start-line="821" selection-start-column="25" selection-end-line="821" selection-end-column="25" />
+          <folding>
+            <element signature="e#722#6360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#8621#9153#0" expanded="false" />
+            <element signature="e#9159#9635#0" expanded="false" />
+            <element signature="e#9641#10122#0" expanded="false" />
+            <element signature="e#10127#10732#0" expanded="false" />
+            <element signature="e#10742#11557#0" expanded="false" />
+            <element signature="e#11562#12381#0" expanded="false" />
+            <element signature="e#12386#12857#0" expanded="false" />
+            <element signature="e#12862#13337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14670">
+          <caret line="815" column="55" lean-forward="false" selection-start-line="815" selection-start-column="55" selection-end-line="815" selection-end-column="55" />
+          <folding>
+            <element signature="e#722#6360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#8621#9153#0" expanded="false" />
+            <element signature="e#9159#9635#0" expanded="false" />
+            <element signature="e#9641#10122#0" expanded="false" />
+            <element signature="e#10127#10732#0" expanded="false" />
+            <element signature="e#10742#11557#0" expanded="false" />
+            <element signature="e#11562#12381#0" expanded="false" />
+            <element signature="e#12386#12857#0" expanded="false" />
+            <element signature="e#12862#13337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3960">
+          <caret line="220" column="0" lean-forward="false" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding>
+            <element signature="e#722#6360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#8621#9153#0" expanded="false" />
+            <element signature="e#9159#9635#0" expanded="false" />
+            <element signature="e#9641#10122#0" expanded="false" />
+            <element signature="e#10127#10732#0" expanded="false" />
+            <element signature="e#10742#11557#0" expanded="false" />
+            <element signature="e#11562#12381#0" expanded="false" />
+            <element signature="e#12386#12857#0" expanded="false" />
+            <element signature="e#12862#13337#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -508,7 +592,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -518,7 +601,7 @@
         <state relative-caret-position="414">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -536,7 +619,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -546,7 +628,7 @@
         <state relative-caret-position="414">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -564,7 +646,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -574,7 +655,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -592,7 +673,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -602,7 +682,7 @@
         <state relative-caret-position="7182">
           <caret line="399" column="32" lean-forward="false" selection-start-line="399" selection-start-column="32" selection-end-line="399" selection-end-column="32" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -620,7 +700,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -630,7 +709,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -648,7 +727,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,7 +736,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -676,7 +754,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -686,7 +763,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -704,7 +781,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -714,7 +790,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -732,7 +808,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -742,7 +817,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -760,7 +835,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,7 +844,7 @@
         <state relative-caret-position="7038">
           <caret line="391" column="24" lean-forward="false" selection-start-line="391" selection-start-column="24" selection-end-line="391" selection-end-column="24" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -788,7 +862,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -798,7 +871,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -816,7 +889,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -826,7 +898,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -844,7 +916,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -854,7 +925,7 @@
         <state relative-caret-position="12222">
           <caret line="679" column="38" lean-forward="true" selection-start-line="679" selection-start-column="38" selection-end-line="679" selection-end-column="38" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -872,7 +943,6 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -882,24 +952,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -916,7 +969,24 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -937,8 +1007,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/memory_library/memoryManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="5976">
+          <caret line="332" column="71" lean-forward="false" selection-start-line="332" selection-start-column="71" selection-end-line="332" selection-end-column="71" />
           <folding>
             <element signature="e#8621#9153#0" expanded="false" />
             <element signature="e#9159#9635#0" expanded="false" />
@@ -948,17 +1018,16 @@
             <element signature="e#11562#12381#0" expanded="false" />
             <element signature="e#12386#12857#0" expanded="false" />
             <element signature="e#12862#13337#0" expanded="false" />
-            <element signature="e#13343#15484#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MemoryManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4468">
-          <caret line="851" column="0" lean-forward="true" selection-start-line="851" selection-start-column="0" selection-end-line="851" selection-end-column="0" />
+        <state relative-caret-position="528">
+          <caret line="290" column="38" lean-forward="false" selection-start-line="290" selection-start-column="38" selection-end-line="290" selection-end-column="38" />
           <folding>
-            <element signature="e#722#6305#0" expanded="false" />
+            <element signature="e#722#6360#0" expanded="false" />
           </folding>
         </state>
       </provider>
