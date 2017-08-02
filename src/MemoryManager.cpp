@@ -235,8 +235,9 @@ int main(int argc, char **argv) {
             shapeSphere2.coefficients=coefficient2;
             shapeSphere2.color.data="blue";
             correctedRansacShapes.tracked_shapes.push_back(shapeSphere2);
+             receivedNewShapes=true;
 */
-            receivedNewShapes=true;
+
 
 
         int decision = userDecision();
@@ -602,8 +603,9 @@ int main(int argc, char **argv) {
                         srv_episodic_forgot.request.deleteSemantic=srv_score.response.deleteSemantic;
                         srv_episodic_forgot.request.deleteEpisodic=srv_score.response.deleteEpisodic;
                         if(client_episodic.call(srv_episodic_forgot)){
+                            cout<<"called episodic score"<<endl;
                             if(client_semantic.call(srv_semantic_forgot)){
-
+                                cout<<"called semantic score"<<endl;
                             }
                         }
 
